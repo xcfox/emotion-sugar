@@ -1,25 +1,25 @@
-import { css } from '@emotion/react'
-import { makeSugar, sugar, Sugar } from '..'
+import { css, SerializedStyles } from '@emotion/react'
+import { makeSugar, OrFn, sugar, Sugar } from '..'
 
-export const hover = makeSugar(pseudoClassSugar('&:hover'))
-export const active = makeSugar(pseudoClassSugar('&:active'))
-export const focus = makeSugar(pseudoClassSugar('&:focus'))
-export const disabled = makeSugar(pseudoClassSugar('&:disabled'))
+export const hover = makeSugar(selectorSugar('&:hover'))
+export const active = makeSugar(selectorSugar('&:active'))
+export const focus = makeSugar(selectorSugar('&:focus'))
+export const disabled = makeSugar(selectorSugar('&:disabled'))
 
-export const pseudo = makeSugar(
-  (key: string, sugarFn: (sugar: Sugar) => Sugar) =>
-    css`
-      ${key} {
-        ${sugarFn(sugar())}
-      }
-    `
+export const selector = makeSugar(
+  (key: string, sugarFn: OrFn<SerializedStyles | Sugar | string>) =>
+    selectorSugar(key)(sugarFn)
 )
 
-function pseudoClassSugar(key: string) {
-  return (sugarFn: (sugar: Sugar) => Sugar) =>
-    css`
+function selectorSugar(key: string) {
+  return (
+    sugarFn: OrFn<SerializedStyles | Sugar | string>
+  ): SerializedStyles => {
+    const ss = sugarFn instanceof Function ? sugarFn(sugar()) : sugarFn
+    return css`
       ${key} {
-        ${sugarFn(sugar())}
+        ${ss}
       }
     `
+  }
 }

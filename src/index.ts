@@ -42,7 +42,7 @@ import {
   active,
   focus,
   disabled,
-  pseudo,
+  selector,
 } from './interactivity/pseudoClasses'
 import {
   transform,
@@ -95,7 +95,7 @@ import { textEllipsis } from './typography/textEllipsis'
 import { when } from './utils'
 
 export class Sugar extends Array<SerializedStyles> {
-  /** 任意 SerializedStyles
+  /** any SerializedStyles
  * @example
  * sugar(css`
     object-fit: cover;
@@ -202,7 +202,7 @@ export class Sugar extends Array<SerializedStyles> {
 
   disabled = disabled
 
-  pseudo = pseudo
+  selector = selector
 
   transform = transform
 
@@ -337,7 +337,7 @@ export {
   active,
   focus,
   disabled,
-  pseudo,
+  selector,
   transform,
   translate,
   translateX,
