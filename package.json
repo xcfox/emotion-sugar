@@ -1,8 +1,24 @@
 {
   "name": "emotion-sugar",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "dist/index.js",
   "license": "MIT",
+  "keywords": [
+    "react",
+    "emotion",
+    "utils",
+    "utility-first",
+    "utilities",
+    "css",
+    "css-in-js ",
+    "ui",
+    "component",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xcfox/emotion-sugar"
+  },
   "peerDependencies": {
     "@emotion/react": ">= 11.0.0"
   },

@@ -1,5 +1,6 @@
 👩‍🎤 A set of pleasant utilities for emotion  
 [Emotion](https://github.com/emotion-js/emotion) is a performant and flexible CSS-in-JS library.
+This Library provides a set of utilities for emotion, or rather, it makes emotion utility-first.
 
 ## Let's make emotion more delight
 
