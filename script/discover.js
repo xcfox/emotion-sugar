@@ -101,7 +101,7 @@ textLines.push(...properties)
 textLines.push('}')
 textLines.push(`\n export {${exportNames.join()}}`)
 textLines.push(`\n export * from './helper'`)
-textLines.push(`\n export * from './sugar'`)
+textLines.push(`\n export * from './main'`)
 
 const prettierConfig = prettier.resolveConfig.sync(
   path.resolve(__dirname, '../.prettierrc')

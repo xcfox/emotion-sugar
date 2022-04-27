@@ -1,7 +1,5 @@
-import { css, SerializedStyles } from '@emotion/react'
-import { CssLength, CssUnits, pxTransform, Sugar } from '.'
-
-export type OrFn<T> = ((sugar: Sugar) => T) | T
+import { SerializedStyles } from '@emotion/react'
+import { Sugar, OrFn } from '.'
 
 /** Any SerializedStyles
  * @example
@@ -29,15 +27,5 @@ export function makeSugar<Args extends Array<unknown>>(
     const style = fn(...args)
     style && self.push(style)
     return self
-  }
-}
-
-export function lengthSugar(
-  ...keys: string[]
-): (n?: CssLength, unit?: CssUnits) => SerializedStyles {
-  return (n, unit) => {
-    const nn = pxTransform(n, unit)
-    const ss = keys.map((key) => `${key}: ${nn};`)
-    return css(...ss)
   }
 }

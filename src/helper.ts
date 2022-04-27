@@ -1,3 +1,6 @@
+import { css, SerializedStyles } from '@emotion/react'
+import { Sugar } from 'src'
+
 export type CssLength = number | string | undefined
 export type CssUnits =
   | 'cm'
@@ -29,3 +32,15 @@ export function pxTransform(
   }
   return undefined
 }
+
+export function lengthSugar(
+  ...keys: string[]
+): (n?: CssLength, unit?: CssUnits) => SerializedStyles {
+  return (n, unit) => {
+    const nn = pxTransform(n, unit)
+    const ss = keys.map((key) => `${key}: ${nn};`)
+    return css(...ss)
+  }
+}
+
+export type OrFn<T> = ((sugar: Sugar) => T) | T
