@@ -1,5 +1,5 @@
 import { css, Keyframes } from '@emotion/react'
-import { makeSugar } from '../sugar'
+import { makeUtility } from '..'
 
 export interface AnimationProps {
   duration?: number | string
@@ -11,7 +11,7 @@ export interface AnimationProps {
   playState?: string
 }
 
-export const animation = makeSugar(
+export const animation = makeUtility(
   (
     keyframes: Keyframes,
     {

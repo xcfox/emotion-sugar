@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
-import { makeSugar } from '..'
+import { makeUtility } from '..'
 
-export const box = makeSugar(
+export const box = makeUtility(
   (value: 'border-box' | 'content-box' = 'border-box') =>
     css`
       box-sizing: ${value};

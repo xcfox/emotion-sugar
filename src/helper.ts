@@ -1,5 +1,5 @@
 import { css, SerializedStyles } from '@emotion/react'
-import { Sugar } from 'src'
+import { Sugar } from '.'
 
 export type CssLength = number | string | undefined
 export type CssUnits =
@@ -44,3 +44,7 @@ export function lengthSugar(
 }
 
 export type OrFn<T> = ((sugar: Sugar) => T) | T
+export type Utility<Args extends Array<unknown>> = <This extends Sugar>(
+  this: This | void,
+  ...args: Args
+) => This

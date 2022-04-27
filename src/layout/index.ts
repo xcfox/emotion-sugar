@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { makeSugar } from '..'
+import { makeUtility } from '..'
 
 export type LayoutArgument =
   | 'center'
@@ -49,7 +49,7 @@ const justifyContentColumn: LayoutRecord = {
 
 const alignItemsColumn: LayoutRecord = leftRight
 
-export const row = makeSugar((...layouts: LayoutArgument[]) => {
+export const row = makeUtility((...layouts: LayoutArgument[]) => {
   let justifyContent: string | undefined = undefined
   let alignItems: string | undefined = undefined
   for (const layout of layouts) {
@@ -66,7 +66,7 @@ export const row = makeSugar((...layouts: LayoutArgument[]) => {
   `
 })
 
-export const column = makeSugar((...layouts: LayoutArgument[]) => {
+export const column = makeUtility((...layouts: LayoutArgument[]) => {
   let justifyContent: string | undefined = undefined
   let alignItems: string | undefined = undefined
   for (const layout of layouts) {
@@ -83,40 +83,40 @@ export const column = makeSugar((...layouts: LayoutArgument[]) => {
   `
 })
 
-export const center = makeSugar(
+export const center = makeUtility(
   () => css`
     display: flex;
     justify-content: center;
     align-items: center;
   `
 )
-export const flex = makeSugar(
+export const flex = makeUtility(
   () => css`
     display: flex;
   `
 )
 
-export const flexGrow = makeSugar(
+export const flexGrow = makeUtility(
   (n?: number) =>
     css`
       flex-grow: ${n};
     `
 )
 
-export const grow = makeSugar(
+export const grow = makeUtility(
   (n?: number) =>
     css`
       flex-grow: ${n};
     `
 )
-export const flexShrink = makeSugar(
+export const flexShrink = makeUtility(
   (n?: number) =>
     css`
       flex-shrink: ${n};
     `
 )
 
-export const shrink = makeSugar(
+export const shrink = makeUtility(
   (n?: number) =>
     css`
       flex-shrink: ${n};
@@ -124,7 +124,7 @@ export const shrink = makeSugar(
 )
 
 /** CSS align-items属性将所有直接子节点上的align-self值设置为一个组。 align-self属性设置项目在其包含块中在交叉轴方向上的对齐方式。 */
-export const alignItems = makeSugar(
+export const alignItems = makeUtility(
   (
     value?:
       | 'normal'
@@ -149,7 +149,7 @@ export const alignItems = makeSugar(
   `
 )
 
-export const alignSelf = makeSugar(
+export const alignSelf = makeUtility(
   (
     value?:
       | 'normal'

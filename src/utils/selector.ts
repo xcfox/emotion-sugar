@@ -1,12 +1,12 @@
 import { css, SerializedStyles } from '@emotion/react'
-import { makeSugar, OrFn, sugar, Sugar } from '..'
+import { makeUtility, OrFn, sugar, Sugar } from '..'
 
-export const hover = makeSugar(selectorSugar('&:hover'))
-export const active = makeSugar(selectorSugar('&:active'))
-export const focus = makeSugar(selectorSugar('&:focus'))
-export const disabled = makeSugar(selectorSugar('&:disabled'))
+export const hover = makeUtility(selectorSugar('&:hover'))
+export const active = makeUtility(selectorSugar('&:active'))
+export const focus = makeUtility(selectorSugar('&:focus'))
+export const disabled = makeUtility(selectorSugar('&:disabled'))
 
-export const selector = makeSugar(
+export const selector = makeUtility(
   (key: string, sugarFn: OrFn<SerializedStyles | Sugar | string>) =>
     selectorSugar(key)(sugarFn)
 )

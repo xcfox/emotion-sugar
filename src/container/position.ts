@@ -1,41 +1,41 @@
 import { css } from '@emotion/react'
-import { makeSugar, lengthSugar } from '..'
+import { makeUtility, lengthSugar } from '..'
 
-export const position = makeSugar(
+export const position = makeUtility(
   (value?: 'static' | 'relative' | 'absolute' | 'sticky' | 'fixed') =>
     css`
       position: ${value};
     `
 )
 
-export const relative = makeSugar(
+export const relative = makeUtility(
   () =>
     css`
       position: relative;
     `
 )
 
-export const absolute = makeSugar(
+export const absolute = makeUtility(
   () => css`
     position: absolute;
   `
 )
 
-export const fixed = makeSugar(
+export const fixed = makeUtility(
   () =>
     css`
       position: fixed;
     `
 )
 
-export const zIndex = makeSugar(
+export const zIndex = makeUtility(
   (value?: number) =>
     css`
       z-index: ${value};
     `
 )
 
-export const left = makeSugar(lengthSugar('left'))
-export const right = makeSugar(lengthSugar('right'))
-export const top = makeSugar(lengthSugar('top'))
-export const bottom = makeSugar(lengthSugar('bottom'))
+export const left = makeUtility(lengthSugar('left'))
+export const right = makeUtility(lengthSugar('right'))
+export const top = makeUtility(lengthSugar('top'))
+export const bottom = makeUtility(lengthSugar('bottom'))

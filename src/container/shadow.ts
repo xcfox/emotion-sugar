@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
-import { CssLength, makeSugar, pxTransform } from '..'
+import { CssLength, makeUtility, pxTransform } from '..'
 
-export const shadow = makeSugar(
+export const shadow = makeUtility(
   (
     color: string,
     {

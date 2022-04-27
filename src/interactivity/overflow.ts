@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
-import { makeSugar } from '..'
+import { makeUtility } from '..'
 
-export const resize = makeSugar(
+export const resize = makeUtility(
   (
     value?:
       | 'none'
@@ -21,19 +21,19 @@ export const resize = makeSugar(
 
 export type OverflowValue = 'visible' | 'hidden' | 'scroll' | 'auto' | 'inherit'
 
-export const overflow = makeSugar(
+export const overflow = makeUtility(
   (value?: OverflowValue) =>
     css`
       overflow: ${value};
     `
 )
-export const overflowX = makeSugar(
+export const overflowX = makeUtility(
   (value?: OverflowValue) =>
     css`
       overflow-x: ${value};
     `
 )
-export const overflowY = makeSugar(
+export const overflowY = makeUtility(
   (value?: OverflowValue) =>
     css`
       overflow-y: ${value};

@@ -1,14 +1,14 @@
 import { css } from '@emotion/react'
-import { CssLength, CssUnits, makeSugar, pxTransform } from '..'
+import { CssLength, CssUnits, makeUtility, pxTransform } from '..'
 
-export const transform = makeSugar(
+export const transform = makeUtility(
   (value?: string) =>
     css`
       transform: ${value};
     `
 )
 
-export const translate = makeSugar(
+export const translate = makeUtility(
   (valueX: CssLength, valueY?: CssLength) =>
     css`
       transform: translate(
@@ -18,13 +18,13 @@ export const translate = makeSugar(
     `
 )
 
-export const translateX = makeSugar(
+export const translateX = makeUtility(
   (n: CssLength, unit?: CssUnits) =>
     css`
       transform: translateX(${pxTransform(n, unit)}); ;
     `
 )
-export const translateY = makeSugar(
+export const translateY = makeUtility(
   (n: CssLength, unit?: CssUnits) =>
     css`
       transform: translateY(${pxTransform(n, unit)}); ;

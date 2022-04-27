@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
-import { makeSugar } from '..'
+import { makeUtility } from '..'
 
-export const cursor = makeSugar(
+export const cursor = makeUtility(
   (
     value:
       | 'auto'
@@ -46,7 +46,7 @@ export const cursor = makeSugar(
     `
 )
 
-export const pointerEvents = makeSugar(
+export const pointerEvents = makeUtility(
   (value: 'auto' | 'none' | 'all' | 'initial') =>
     css`
       pointer-events: ${value};

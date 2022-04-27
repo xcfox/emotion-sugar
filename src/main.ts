@@ -1,11 +1,14 @@
-import { SerializedStyles } from '@emotion/react'
-import { Sugar, OrFn } from '.'
+import { css, SerializedStyles } from '@emotion/react'
+import { Sugar, OrFn, Utility } from '.'
+import { color } from './typography'
+
+export const makeUtility = sugarMaker(() => new Sugar())
 
 /** Any SerializedStyles
  * @example
  * sugar(css`object-fit: cover;`)
  * sugar('object-fit: cover')*/
-export const sugar = makeSugar(
+export const sugar = makeUtility(
   (style?: OrFn<SerializedStyles | Sugar | string | false>) => {
     if (typeof style === 'function') {
       style = style(sugar())
@@ -14,18 +17,19 @@ export const sugar = makeSugar(
   }
 )
 
-export function confirmSugar(self: Sugar | void): Sugar {
-  if (self instanceof Sugar) return self
-  return new Sugar()
-}
-
-export function makeSugar<Args extends Array<unknown>>(
-  fn: (...args: Args) => SerializedStyles | undefined
-): (this: void | Sugar, ...args: Args) => Sugar {
-  return function (this, ...args) {
-    const self = confirmSugar(this)
-    const style = fn(...args)
-    style && self.push(style)
-    return self
+export function sugarMaker<SS extends Array<SerializedStyles>>(
+  init: () => SS
+): MakeSugar {
+  return (fn) => {
+    return function (this, ...args) {
+      const self = this ?? init()
+      const style = fn(...args)
+      style && self.push(style)
+      return self as any
+    }
   }
 }
+
+export type MakeSugar = <Args extends Array<unknown>>(
+  fn: (...args: Args) => SerializedStyles | undefined | false
+) => Utility<Args>

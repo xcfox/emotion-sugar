@@ -13,7 +13,7 @@ const sourceFiles = project.getSourceFiles()
 /** @type {{ source: string, hasArg?: boolean, name: string, comment: string }[]} */
 const sugars = []
 
-const makeSugarReg = /makeSugar/m
+const makeUtilityReg = /makeUtility/m
 
 sourceFiles.forEach((file) => {
   const exportedDeclarations = file.getExportedDeclarations()
@@ -31,7 +31,7 @@ sourceFiles.forEach((file) => {
       }
     }
 
-    const isSugar = makeSugarReg.test(defineNode.getText())
+    const isSugar = makeUtilityReg.test(defineNode.getText())
 
     if (!isSugar) continue
     const commentRanges = variable

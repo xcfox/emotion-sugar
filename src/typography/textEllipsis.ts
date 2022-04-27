@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { makeSugar } from '..'
+import { makeUtility } from '..'
 
 const _textEllipsis = (lines = 1) => css`
   word-break: break-word;
@@ -17,4 +17,4 @@ const _textEllipsis = (lines = 1) => css`
       `}
 `
 /** 文本溢出省略 */
-export const textEllipsis = makeSugar(_textEllipsis)
+export const textEllipsis = makeUtility(_textEllipsis)

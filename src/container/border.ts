@@ -1,25 +1,26 @@
 import { css } from '@emotion/react'
-import { CssLength, pxTransform, makeSugar } from '..'
+import { CssLength, pxTransform, makeUtility } from '..'
 
-export const rounded = makeSugar(
+export const rounded = makeUtility(
   (n: CssLength = 2333) =>
     css`
       border-radius: ${pxTransform(n)};
     `
 )
-export const border = makeSugar((color: string | null, width: CssLength = 1) =>
-  color === null
-    ? css`
-        border: none;
-      `
-    : css`
-        border-style: solid;
-        border-color: ${color};
-        border-width: ${pxTransform(width)};
-      `
+export const border = makeUtility(
+  (color: string | null, width: CssLength = 1) =>
+    color === null
+      ? css`
+          border: none;
+        `
+      : css`
+          border-style: solid;
+          border-color: ${color};
+          border-width: ${pxTransform(width)};
+        `
 )
 
-export const outlineNone = makeSugar(
+export const outlineNone = makeUtility(
   () =>
     css`
       outline: none;
