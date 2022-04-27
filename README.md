@@ -1,8 +1,15 @@
+# emotion-sugar
+
 👩‍🎤 A set of pleasant utilities for emotion  
-[Emotion](https://github.com/emotion-js/emotion) is a performant and flexible CSS-in-JS library.
+[![License](https://img.shields.io/npm/l/emotion-sugar.svg)](https://github.com/xcfox/emotion-sugar/blob/main/LICENSE)
+[![npm](https://img.shields.io/npm/v/emotion-sugar.svg)](https://www.npmjs.com/package/emotion-sugar)
+[![NPM Downloads](https://img.shields.io/npm/dm/emotion-sugar.svg?style=flat)](https://www.npmjs.com/package/emotion-sugar)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+
+[Emotion](https://github.com/emotion-js/emotion) is a performant and flexible CSS-in-JS library.  
 This Library provides a set of utilities for emotion, or rather, it makes emotion utility-first.
 
-## Let's make emotion more delight
+## 🍭 Let's make emotion more delight
 
 Write style with emotion:
 
@@ -41,4 +48,25 @@ render(
     Hover to change color.
   </div>
 )
+```
+
+## 🌠 Features
+
+**🧩 Seamless integration with emotion：** Use it in existing emotion projects as you like.  
+**🛡️ Typed:** Full support for TypeScript  
+**🍸 Less code:** It is far less code than native css  
+**🍩 Flex tooltips:** Let's make a flex container by intuition
+
+## 🔧 Install
+
+use yarn:
+
+```sh
+yarn add @emotion/react emotion-sugar
+```
+
+or use npm:
+
+```sh
+npm i @emotion/react emotion-sugar
 ```

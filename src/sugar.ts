@@ -3,11 +3,10 @@ import { CssLength, CssUnits, pxTransform, Sugar } from '.'
 
 export type OrFn<T> = ((sugar: Sugar) => T) | T
 
-/** any SerializedStyles
+/** Any SerializedStyles
  * @example
- * sugar(css`
-    object-fit: cover;
-`)*/
+ * sugar(css`object-fit: cover;`)
+ * sugar('object-fit: cover')*/
 export const sugar = makeSugar(
   (style?: OrFn<SerializedStyles | Sugar | string | false>) => {
     if (typeof style === 'function') {

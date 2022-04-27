@@ -38,13 +38,6 @@ import {
   overflowY,
 } from './interactivity/overflow'
 import {
-  hover,
-  active,
-  focus,
-  disabled,
-  selector,
-} from './interactivity/pseudoClasses'
-import {
   transform,
   translate,
   translateX,
@@ -93,13 +86,13 @@ import {
 } from './typography'
 import { textEllipsis } from './typography/textEllipsis'
 import { when } from './utils'
+import { hover, active, focus, disabled, selector } from './utils/selector'
 
 export class Sugar extends Array<SerializedStyles> {
-  /** any SerializedStyles
- * @example
- * sugar(css`
-    object-fit: cover;
-`)*/
+  /** Any SerializedStyles
+   * @example
+   * sugar(css`object-fit: cover;`)
+   * sugar('object-fit: cover')*/
   sugar = sugar
 
   bg = bg
@@ -194,16 +187,6 @@ export class Sugar extends Array<SerializedStyles> {
 
   overflowY = overflowY
 
-  hover = hover
-
-  active = active
-
-  focus = focus
-
-  disabled = disabled
-
-  selector = selector
-
   transform = transform
 
   translate = translate
@@ -295,6 +278,16 @@ export class Sugar extends Array<SerializedStyles> {
   textEllipsis = textEllipsis
 
   when = when
+
+  hover = hover
+
+  active = active
+
+  focus = focus
+
+  disabled = disabled
+
+  selector = selector
 }
 
 export {
@@ -333,11 +326,6 @@ export {
   overflow,
   overflowX,
   overflowY,
-  hover,
-  active,
-  focus,
-  disabled,
-  selector,
   transform,
   translate,
   translateX,
@@ -380,6 +368,11 @@ export {
   textShadow,
   textEllipsis,
   when,
+  hover,
+  active,
+  focus,
+  disabled,
+  selector,
 }
 
 export * from './helper'
