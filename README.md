@@ -1,6 +1,7 @@
 # emotion-sugar
 
-👩‍🎤 A set of pleasant utilities for emotion  
+👩‍🎤 A set of pleasant utilities for emotion
+
 [![License](https://img.shields.io/npm/l/emotion-sugar.svg)](https://github.com/xcfox/emotion-sugar/blob/main/LICENSE)
 [![npm](https://img.shields.io/npm/v/emotion-sugar.svg)](https://www.npmjs.com/package/emotion-sugar)
 [![NPM Downloads](https://img.shields.io/npm/dm/emotion-sugar.svg?style=flat)](https://www.npmjs.com/package/emotion-sugar)
