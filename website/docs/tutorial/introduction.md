@@ -1,4 +1,8 @@
-# Emotion Sugar
+---
+sidebar_position: 1
+---
+
+# Introduction
 
 👩‍🎤 A set of pleasant utilities for emotion
 
@@ -57,17 +61,3 @@ render(
 **🛡️ Typed:** Full support for TypeScript  
 **🍸 Less code:** It is far less code than native css  
 **🍩 Flex tooltips:** Let's make a flex container by intuition
-
-## 🔧 Install
-
-use yarn:
-
-```sh
-yarn add @emotion/react emotion-sugar
-```
-
-or use npm:
-
-```sh
-npm i @emotion/react emotion-sugar
-```

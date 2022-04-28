@@ -109,6 +109,7 @@ export const grow = utility(
       flex-grow: ${n};
     `
 )
+
 export const flexShrink = utility(
   (n?: number) =>
     css`
@@ -123,7 +124,10 @@ export const shrink = utility(
     `
 )
 
-/** CSS align-items属性将所有直接子节点上的align-self值设置为一个组。 align-self属性设置项目在其包含块中在交叉轴方向上的对齐方式。 */
+/** The CSS align-items property sets the align-self value on all direct children as a group. In Flex box, it controls the alignment of items on the Cross Axis. In Grid Layout, it controls the alignment of items on the Block Axis within their grid area.
+ *
+ * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)
+ */
 export const alignItems = utility(
   (
     value?:
@@ -149,6 +153,11 @@ export const alignItems = utility(
   `
 )
 
+/**
+ * The align-self CSS property overrides a grid or flex item's align-items value. In Grid, it aligns the item inside the grid area. In Flexbox, it aligns the item on the cross axis.
+ *
+ * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self)
+ */
 export const alignSelf = utility(
   (
     value?:
