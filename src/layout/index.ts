@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { makeUtility } from '..'
+import { utility } from '..'
 
 export type LayoutArgument =
   | 'center'
@@ -49,7 +49,7 @@ const justifyContentColumn: LayoutRecord = {
 
 const alignItemsColumn: LayoutRecord = leftRight
 
-export const row = makeUtility((...layouts: LayoutArgument[]) => {
+export const row = utility((...layouts: LayoutArgument[]) => {
   let justifyContent: string | undefined = undefined
   let alignItems: string | undefined = undefined
   for (const layout of layouts) {
@@ -66,7 +66,7 @@ export const row = makeUtility((...layouts: LayoutArgument[]) => {
   `
 })
 
-export const column = makeUtility((...layouts: LayoutArgument[]) => {
+export const column = utility((...layouts: LayoutArgument[]) => {
   let justifyContent: string | undefined = undefined
   let alignItems: string | undefined = undefined
   for (const layout of layouts) {
@@ -83,40 +83,40 @@ export const column = makeUtility((...layouts: LayoutArgument[]) => {
   `
 })
 
-export const center = makeUtility(
+export const center = utility(
   () => css`
     display: flex;
     justify-content: center;
     align-items: center;
   `
 )
-export const flex = makeUtility(
+export const flex = utility(
   () => css`
     display: flex;
   `
 )
 
-export const flexGrow = makeUtility(
+export const flexGrow = utility(
   (n?: number) =>
     css`
       flex-grow: ${n};
     `
 )
 
-export const grow = makeUtility(
+export const grow = utility(
   (n?: number) =>
     css`
       flex-grow: ${n};
     `
 )
-export const flexShrink = makeUtility(
+export const flexShrink = utility(
   (n?: number) =>
     css`
       flex-shrink: ${n};
     `
 )
 
-export const shrink = makeUtility(
+export const shrink = utility(
   (n?: number) =>
     css`
       flex-shrink: ${n};
@@ -124,7 +124,7 @@ export const shrink = makeUtility(
 )
 
 /** CSS align-items属性将所有直接子节点上的align-self值设置为一个组。 align-self属性设置项目在其包含块中在交叉轴方向上的对齐方式。 */
-export const alignItems = makeUtility(
+export const alignItems = utility(
   (
     value?:
       | 'normal'
@@ -149,7 +149,7 @@ export const alignItems = makeUtility(
   `
 )
 
-export const alignSelf = makeUtility(
+export const alignSelf = utility(
   (
     value?:
       | 'normal'

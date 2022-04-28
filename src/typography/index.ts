@@ -1,33 +1,33 @@
 import { css } from '@emotion/react'
-import { makeUtility, lengthSugar, CssLength, pxTransform } from '..'
+import { utility, lengthSugar, CssLength, pxTransform } from '..'
 
-export const color = makeUtility(
+export const color = utility(
   (colorInput: string) =>
     css`
       color: ${colorInput};
     `
 )
 
-export const text = makeUtility(lengthSugar('font-size'))
+export const text = utility(lengthSugar('font-size'))
 
-export const fontSize = makeUtility(lengthSugar('font-size'))
+export const fontSize = utility(lengthSugar('font-size'))
 
-export const fontWeight = makeUtility(
+export const fontWeight = utility(
   (n: number | 'bold') =>
     css`
       font-weight: ${n};
     `
 )
 
-export const lineHeight = makeUtility(lengthSugar('line-height'))
+export const lineHeight = utility(lengthSugar('line-height'))
 
-export const fontSans = makeUtility(
+export const fontSans = utility(
   () => css`
     font-family: sans-serif;
   `
 )
 
-export const textShadow = makeUtility(
+export const textShadow = utility(
   (
     color: string,
     {

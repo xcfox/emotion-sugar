@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
-import { makeUtility } from '..'
+import { utility } from '..'
 
-export const resize = makeUtility(
+export const resize = utility(
   (
     value?:
       | 'none'
@@ -21,19 +21,19 @@ export const resize = makeUtility(
 
 export type OverflowValue = 'visible' | 'hidden' | 'scroll' | 'auto' | 'inherit'
 
-export const overflow = makeUtility(
+export const overflow = utility(
   (value?: OverflowValue) =>
     css`
       overflow: ${value};
     `
 )
-export const overflowX = makeUtility(
+export const overflowX = utility(
   (value?: OverflowValue) =>
     css`
       overflow-x: ${value};
     `
 )
-export const overflowY = makeUtility(
+export const overflowY = utility(
   (value?: OverflowValue) =>
     css`
       overflow-y: ${value};

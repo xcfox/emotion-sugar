@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
-import { makeUtility } from '..'
+import { utility } from '..'
 
-export const cursor = makeUtility(
+export const cursor = utility(
   (
     value:
       | 'auto'
@@ -46,7 +46,7 @@ export const cursor = makeUtility(
     `
 )
 
-export const pointerEvents = makeUtility(
+export const pointerEvents = utility(
   (value: 'auto' | 'none' | 'all' | 'initial') =>
     css`
       pointer-events: ${value};

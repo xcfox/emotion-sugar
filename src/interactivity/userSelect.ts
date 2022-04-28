@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { makeUtility } from '..'
+import { utility } from '..'
 
 function _select(
   select:
@@ -17,5 +17,5 @@ function _select(
   `
 }
 
-export const select = makeUtility(_select)
-export const userSelect = makeUtility(_select)
+export const select = utility(_select)
+export const userSelect = utility(_select)

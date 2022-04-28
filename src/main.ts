@@ -1,14 +1,13 @@
-import { css, SerializedStyles } from '@emotion/react'
+import { SerializedStyles } from '@emotion/react'
 import { Sugar, OrFn, Utility } from '.'
-import { color } from './typography'
 
-export const makeUtility = sugarMaker(() => new Sugar())
+export const utility = sugarMaker(() => new Sugar())
 
 /** Any SerializedStyles
  * @example
  * sugar(css`object-fit: cover;`)
  * sugar('object-fit: cover')*/
-export const sugar = makeUtility(
+export const sugar = utility(
   (style?: OrFn<SerializedStyles | Sugar | string | false>) => {
     if (typeof style === 'function') {
       style = style(sugar())

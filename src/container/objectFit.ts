@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
-import { makeUtility } from '..'
+import { utility } from '..'
 
-export const fit = makeUtility(
+export const fit = utility(
   (fit: 'fill' | 'contain' | 'cover' | 'none' | 'scale-down') =>
     css`
       object-fit: ${fit};

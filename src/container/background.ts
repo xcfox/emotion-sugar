@@ -1,14 +1,14 @@
 import { css } from '@emotion/react'
-import { makeUtility } from '..'
+import { utility } from '..'
 
-export const bg = makeUtility(
+export const bg = utility(
   (s?: string) =>
     css`
       background: ${s};
     `
 )
 
-export const opacity = makeUtility(
+export const opacity = utility(
   (n?: number) =>
     css`
       opacity: ${n ?? 0};

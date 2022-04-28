@@ -1,30 +1,30 @@
 import { css } from '@emotion/react'
-import { makeUtility, lengthSugar } from '..'
+import { utility, lengthSugar } from '..'
 
-export const w = makeUtility(lengthSugar('width'))
+export const w = utility(lengthSugar('width'))
 
-export const h = makeUtility(lengthSugar('height'))
-export const maxW = makeUtility(lengthSugar('max-width'))
-export const minW = makeUtility(lengthSugar('min-width'))
-export const maxH = makeUtility(lengthSugar('max-height'))
-export const minH = makeUtility(lengthSugar('min-height'))
+export const h = utility(lengthSugar('height'))
+export const maxW = utility(lengthSugar('max-width'))
+export const minW = utility(lengthSugar('min-width'))
+export const maxH = utility(lengthSugar('max-height'))
+export const minH = utility(lengthSugar('min-height'))
 
 /** 宽度拉满 */
-export const wFull = makeUtility(
+export const wFull = utility(
   () => css`
     width: 100%;
   `
 )
 
 /** 高度拉满 */
-export const hFull = makeUtility(
+export const hFull = utility(
   () => css`
     height: 100%;
   `
 )
 
 /** 宽高都拉满 */
-export const full = makeUtility(
+export const full = utility(
   () => css`
     width: 100%;
     height: 100%;
@@ -38,4 +38,4 @@ export const full = makeUtility(
  *   height: $n;
  * }
  * ``` */
-export const square = makeUtility(lengthSugar('width', 'height'))
+export const square = utility(lengthSugar('width', 'height'))

@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
-import { makeUtility } from '..'
+import { utility } from '..'
 
-export const transition = makeUtility(
+export const transition = utility(
   (value: string | number = 233) =>
     css`
       transition: ${typeof value === 'number'
