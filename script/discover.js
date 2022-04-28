@@ -13,27 +13,22 @@ const sourceFiles = project.getSourceFiles()
 /** @type {{ source: string, hasArg?: boolean, name: string, comment: string }[]} */
 const sugars = []
 
-const utilityReg = /utility/m
+
+/** @argument variable {import('ts-morph').VariableDeclaration} */
+function isUtility(variable) {
+  const typeText = variable.getType().getText()
+  if (/\/helper/.test(typeText) === false) return false
+  return /Utility\<.*\>/.test(typeText)
+}
 
 sourceFiles.forEach((file) => {
   const exportedDeclarations = file.getExportedDeclarations()
 
+  console.log(`${file.getFilePath()}`)
   for (const key of exportedDeclarations.keys()) {
     const variable = file.getVariableDeclaration(key)
     if (!variable) continue
-    let hasArg = true
-    const defineNode = variable.getChildren()[2]
-
-    if (Node.isCallExpression(defineNode)) {
-      const arg = defineNode.getArguments()[0]
-      if (Node.isArrowFunction(arg) || Node.isFunctionExpression(arg)) {
-        hasArg = arg.getParameters().length >= 1
-      }
-    }
-
-    const isSugar = utilityReg.test(defineNode.getText())
-
-    if (!isSugar) continue
+    if (!isUtility(variable)) continue
     const commentRanges = variable
       .getParent()
       .getParent()
@@ -42,11 +37,20 @@ sourceFiles.forEach((file) => {
     sugars.push({
       source: trimPath(file.getFilePath()),
       name: key,
-      hasArg,
+      hasArg: hasArg(variable),
       comment,
     })
   }
 })
+
+/** @argument variable {import('ts-morph').VariableDeclaration} */
+function hasArg(variable) {
+  const typeText = variable.getType().getText()
+  const execResult = /Utility\<.*\>/.exec(typeText)
+  if (!execResult) return false
+  const argsText = execResult[0].split('<').slice(1)[0].replace(/[\>\[\]]/g, '')
+  return argsText.length > 0
+}
 
 // process.exit(1)
 

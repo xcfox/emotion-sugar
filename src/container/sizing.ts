@@ -31,7 +31,7 @@ export const full = utility(
   `
 )
 
-/** 正方形
+/** set both width and height
  * ```css
  * {
  *   width: $n;

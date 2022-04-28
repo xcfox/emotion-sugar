@@ -26,3 +26,5 @@ export const shadow = utility(
     `
   }
 )
+
+export const boxShadow = shadow

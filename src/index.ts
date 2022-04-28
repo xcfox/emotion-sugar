@@ -3,7 +3,7 @@ import { SerializedStyles } from '@emotion/react'
 import { sugar } from './main'
 import { bg, opacity } from './container/background'
 import { rounded, border, outlineNone } from './container/border'
-import { box } from './container/boxSizing'
+import { boxSizing, box } from './container/boxSizing'
 import { fit } from './container/objectFit'
 import {
   position,
@@ -16,7 +16,7 @@ import {
   top,
   bottom,
 } from './container/position'
-import { shadow } from './container/shadow'
+import { shadow, boxShadow } from './container/shadow'
 import {
   w,
   h,
@@ -107,6 +107,8 @@ export class Sugar extends Array<SerializedStyles> {
     return outlineNone.bind(this)()
   }
 
+  boxSizing = boxSizing
+
   box = box
 
   fit = fit
@@ -137,6 +139,8 @@ export class Sugar extends Array<SerializedStyles> {
 
   shadow = shadow
 
+  boxShadow = boxShadow
+
   w = w
 
   h = h
@@ -149,22 +153,22 @@ export class Sugar extends Array<SerializedStyles> {
 
   minH = minH
 
-  /** 宽度拉满 */
+  /** set width full */
   get wFull() {
     return wFull.bind(this)()
   }
 
-  /** 高度拉满 */
+  /** set height full */
   get hFull() {
     return hFull.bind(this)()
   }
 
-  /** 宽高都拉满 */
+  /** set width and height full */
   get full() {
     return full.bind(this)()
   }
 
-  /** 正方形
+  /** set both width and height
    * ```css
    * {
    *   width: $n;
@@ -221,9 +225,17 @@ export class Sugar extends Array<SerializedStyles> {
 
   shrink = shrink
 
-  /** CSS align-items属性将所有直接子节点上的align-self值设置为一个组。 align-self属性设置项目在其包含块中在交叉轴方向上的对齐方式。 */
+  /** The CSS align-items property sets the align-self value on all direct children as a group. In Flex box, it controls the alignment of items on the Cross Axis. In Grid Layout, it controls the alignment of items on the Block Axis within their grid area.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)
+   */
   alignItems = alignItems
 
+  /**
+   * The align-self CSS property overrides a grid or flex item's align-items value. In Grid, it aligns the item inside the grid area. In Flexbox, it aligns the item on the cross axis.
+   *
+   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self)
+   */
   alignSelf = alignSelf
 
   m = m
@@ -297,6 +309,7 @@ export {
   rounded,
   border,
   outlineNone,
+  boxSizing,
   box,
   fit,
   position,
@@ -309,6 +322,7 @@ export {
   top,
   bottom,
   shadow,
+  boxShadow,
   w,
   h,
   maxW,

@@ -28,7 +28,7 @@ export default function Playground({ children, transformCode, ...props }) {
         {...props}
       >
         <div className={css(sugar().row().minH(160).wFull)}>
-          <div className={css(sugar().w(50, '%'))}>
+          <div className={css(sugar().w(60, '%'))}>
             <LiveEditor
               key={String(isBrowser)}
               className={cx(
@@ -38,7 +38,7 @@ export default function Playground({ children, transformCode, ...props }) {
             />
           </div>
           <div
-            className={cx(styles.playgroundPreview, css(sugar().w(50, '%')))}
+            className={cx(styles.playgroundPreview, css(sugar().w(40, '%')))}
           >
             <BrowserOnly fallback={<LivePreviewLoader />}>
               {() => (

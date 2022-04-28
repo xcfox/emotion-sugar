@@ -1,9 +1,11 @@
 import { css } from '@emotion/react'
 import { utility } from '..'
 
-export const box = utility(
+export const boxSizing = utility(
   (value: 'border-box' | 'content-box' = 'border-box') =>
     css`
       box-sizing: ${value};
     `
 )
+
+export const box = boxSizing
