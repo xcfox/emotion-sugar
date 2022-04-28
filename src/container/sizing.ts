@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
-import { utility, lengthSugar } from '..'
+import { utility } from '..'
+import { lengthSugar } from '../helper'
 
 export const w = utility(lengthSugar('width'))
 export const h = utility(lengthSugar('height'))

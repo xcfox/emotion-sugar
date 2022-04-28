@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
-import { CssLength, pxTransform, utility, lengthSugar } from '..'
+import { CssLength, pxTransform, utility } from '..'
+import { lengthSugar } from '../helper'
 
 export const m = utility(lengthSugar('margin'))
 export const mx = utility(lengthSugar('margin-left', 'margin-right'))

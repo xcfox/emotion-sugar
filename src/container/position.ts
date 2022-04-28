@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
-import { utility, lengthSugar } from '..'
+import { lengthSugar } from '../helper'
+import { utility } from '../'
 
 export const position = utility(
   (value?: 'static' | 'relative' | 'absolute' | 'sticky' | 'fixed') =>

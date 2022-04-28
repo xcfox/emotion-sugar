@@ -13,9 +13,9 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.svg',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
+  organizationName: 'xcfox', // Usually your GitHub org/user name.
   projectName: 'docusaurus', // Usually your repo name.
-
+  themes: ['@docusaurus/theme-live-codeblock'],
   presets: [
     [
       'classic',

@@ -1,1 +1,30 @@
 # Background
+
+The `background` shorthand CSS property sets all background style properties at once, such as color, image, origin and size, or repeat method.
+
+#### [MDN Reference](https://developer.mozilla.org/docs/Web/CSS/background)
+
+| Utilities          | CSS Properties       |
+| ------------------ | -------------------- |
+| sugar().bg.(value) | background: {value}; |
+| sugar().bg.(value) | bg: {value};         |
+
+```tsx live
+function example() {
+  const circle = () => sugar().square(100).rounded()
+
+  return (
+    <div css={sugar().row().spaceX(10)}>
+      <div css={circle().bg('hotpink')} />
+      <div
+        css={circle().bg(
+          'linear-gradient(to right, rgb(168, 85, 247), rgb(240, 101, 149), rgb(255, 107, 107))'
+        )}
+      />
+      <div css={circle().bg('#ff8888')} />
+    </div>
+  )
+}
+```
+
+I can write **Markdown** alongside my _JSX_!
