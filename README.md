@@ -1,6 +1,6 @@
 # Emotion Sugar
 
-👩‍🎤 A set of pleasant utilities for emotion
+🍭 A set of pleasant utilities for emotion
 
 [![License](https://img.shields.io/npm/l/emotion-sugar.svg)](https://github.com/xcfox/emotion-sugar/blob/main/LICENSE)
 [![npm](https://img.shields.io/npm/v/emotion-sugar.svg)](https://www.npmjs.com/package/emotion-sugar)
@@ -10,7 +10,7 @@
 [Emotion](https://github.com/emotion-js/emotion) is a performant and flexible CSS-in-JS library.  
 This Library provides a set of utilities for emotion, or rather, it makes emotion utility-first.
 
-## 🍭 Let's make emotion more delight
+## 🧋 Let's make emotion more delight
 
 Write style with emotion:
 

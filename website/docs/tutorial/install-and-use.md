@@ -24,12 +24,19 @@ npm i @emotion/react emotion-sugar
 
 ```tsx
 import { jsx } from '@emotion/react'
-import { p, color } from 'emotion-sugar'
+import { sugar } from 'emotion-sugar'
 
 const textColor = 'white'
 
 render(
-  <div css={p(32).bg('hotpink').text(24).rounded(4).hover(color(textColor))}>
+  <div
+    css={sugar()
+      .p(32)
+      .bg('hotpink')
+      .text(24)
+      .rounded(4)
+      .hover(sugar().color(textColor))}
+  >
     Hover to change color.
   </div>
 )
@@ -39,14 +46,14 @@ render(
 
 ```tsx
 import { css, jsx } from '@emotion/react'
-import { p } from 'emotion-sugar'
+import { sugar } from 'emotion-sugar'
 
 const color = 'white'
 
 render(
   <div
     css={css`
-      ${p(32).bg('hotpink').text(24).rounded(4)}
+      ${sugar().p(32).bg('hotpink').text(24).rounded(4)}
       &:hover {
         color: ${color};
       }
@@ -62,7 +69,7 @@ or:
 ```tsx
 render(
   <div
-    css={p(32).bg('hotpink').text(24).rounded(4).sugar(css`
+    css={sugar().p(32).bg('hotpink').text(24).rounded(4).sugar(css`
       &:hover {
         color: ${color};
       }`}
@@ -76,10 +83,10 @@ render(
 
 ```tsx
 import styled from '@emotion/styled'
-import { p } from 'emotion-sugar'
+import { sugar } from 'emotion-sugar'
 
 const Button = styled.button`
-  ${p(32).bg('hotpink').text(24).rounded(4)}
+  ${sugar().p(32).bg('hotpink').text(24).rounded(4)}
   color: black;
   font-weight: bold;
   &:hover {
