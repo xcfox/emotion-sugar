@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import { utility } from '..'
-import { CssLength, CssLengthUnits, pxTransform } from '../helper'
+import { CssLength, CssLengthUnits, orPx } from '../helper'
 
 export type BackgroundRepeat = 'no-repeat' | 'repeat' | 'space ' | 'round'
 
@@ -35,7 +35,7 @@ export const bg = utility((s?: string | Partial<backgroundProps>) => {
       background-origin: ${origin};
       background-position: ${position};
       background-repeat: ${repeat instanceof Array ? repeat.join(' ') : repeat};
-      background-size: ${typeof size === 'number' ? pxTransform(size) : size};
+      background-size: ${typeof size === 'number' ? orPx(size) : size};
     `
   }
 })

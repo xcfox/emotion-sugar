@@ -12,7 +12,7 @@ const config = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.svg',
+  favicon: 'img/favicon.ico',
   organizationName: 'xcfox', // Usually your GitHub org/user name.
   projectName: 'docusaurus', // Usually your repo name.
   themes: ['@docusaurus/theme-live-codeblock'],

@@ -1,11 +1,11 @@
 import { css } from '@emotion/react'
-import { asArray, CssLength, OrArray, pxTransform } from '../helper'
+import { asArray, CssLength, OrArray, orPx } from '../helper'
 import { utility } from '..'
 
 export const rounded = utility(
   (n: CssLength = 2333) =>
     css`
-      border-radius: ${pxTransform(n)};
+      border-radius: ${orPx(n)};
     `
 )
 
@@ -34,7 +34,7 @@ export const border = utility(
       return css`
         border-style: solid;
         border-color: ${props};
-        border-width: ${pxTransform(w)};
+        border-width: ${orPx(w)};
       `
     }
     const { style = 'solid', width, color } = props
@@ -42,7 +42,7 @@ export const border = utility(
       border-style: ${asArray(style).join(' ')};
       border-color: ${asArray(color).join(' ')};
       border-width: ${asArray(width)
-        .map((n) => pxTransform(n))
+        .map((n) => orPx(n))
         .join(' ')};
     `
   }

@@ -2,7 +2,7 @@ import {
   CssLength,
   CssLengthUnits,
   OrFn,
-  pxTransform,
+  orPx,
   selectorSugar,
   Utility,
 } from '../helper'
@@ -15,13 +15,13 @@ export const lg = utility(selectorSugar('@media (min-width: 1024px)'))
 export const xl = utility(selectorSugar('@media (min-width: 1280px)'))
 export const xxl = utility(selectorSugar('@media (min-width: 1536)'))
 
-export const screen: Utility<
-  [value: CssLength | [CssLength, CssLengthUnits], style: OrFn]
-> = utility((value: CssLength | [CssLength, CssLengthUnits], style: OrFn) => {
-  const ss = style instanceof Function ? style() : style
-  return css`
-    @media (min-width: ${pxTransform(value)}) {
-      ${ss}
-    }
-  `
-})
+export const screen: Utility<[value: CssLength, style: OrFn]> = utility(
+  (value: CssLength, style: OrFn) => {
+    const ss = style instanceof Function ? style() : style
+    return css`
+      @media (min-width: ${orPx(value)}) {
+        ${ss}
+      }
+    `
+  }
+)

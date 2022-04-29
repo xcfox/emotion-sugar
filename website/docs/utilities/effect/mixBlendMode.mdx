@@ -1,0 +1,31 @@
+# Mix Blend Mode
+
+Utilities for controlling how an element should blend with the background.
+
+#### [MDN Reference](https://developer.mozilla.org/docs/Web/CSS/mix-blend-mode)
+
+## Utilities
+
+| Utilities                   | CSS Properties           |
+| --------------------------- | ------------------------ |
+| sugar().mixBlendMode(value) | mix-blend-mode: {value}; |
+| sugar().mixBlend(value)     | mix-blend-mode: {value}; |
+
+## Usage
+
+```tsx live
+function Example() {
+  const tea = () => sugar().square(100).center.text(80)
+
+  return (
+    <div css={sugar().row('wrap').p(10).space(10).bg('#ffb0d7')}>
+      <div css={tea().mixBlend('normal')}>🧋</div>
+      <div css={tea().mixBlend('multiply')}>🧋</div>
+      <div css={tea().mixBlend('screen')}>🧋</div>
+      <div css={tea().mixBlendMode('darken')}>🧋</div>
+      <div css={tea().mixBlendMode('lighten')}>🧋</div>
+      <div css={tea().mixBlendMode('color-burn')}>🧋</div>
+    </div>
+  )
+}
+```

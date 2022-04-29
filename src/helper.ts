@@ -1,7 +1,7 @@
 import { css, SerializedStyles } from '@emotion/react'
 import { Sugar } from '.'
 
-export type CssLength = number | CssLiteral | undefined
+export type CssLength = number | CssLiteral
 export type CssLengthUnits =
   | 'cap'
   | 'ch'
@@ -27,10 +27,10 @@ export type CssLengthUnits =
   | 'mozmm'
   | '%'
 
-export type CssLiteral = `${number}${CssLengthUnits}`
+export type CssLiteral = `${'' | '-' | '+'}${number}${CssLengthUnits}`
 
-export function pxTransform(
-  n: CssLength | CssLiteral,
+export function orPx(
+  n?: CssLength | CssLiteral,
   unit: CssLengthUnits = 'px'
 ): string | undefined {
   if (typeof n == 'number') {
@@ -52,7 +52,7 @@ export function lengthSugar(
   ...keys: string[]
 ): (n?: CssLength, unit?: CssLengthUnits) => SerializedStyles {
   return (n, unit) => {
-    const nn = pxTransform(n, unit)
+    const nn = orPx(n, unit)
     const ss = keys.map((key) => `${key}: ${nn};`)
     return css(...ss)
   }

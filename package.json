@@ -20,7 +20,8 @@
     "url": "https://github.com/xcfox/emotion-sugar"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "discover": "node ./script/discover.js"
   },
   "peerDependencies": {
     "@emotion/react": ">= 11.0.0"

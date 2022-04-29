@@ -1,0 +1,58 @@
+# Box Shadow
+
+Utilities for controlling the box shadow of an element.
+
+#### [MDN Reference](https://developer.mozilla.org/docs/Web/CSS/box-shadow)
+
+## Utilities
+
+| Utilities                                               | CSS Properties                                       |
+| ------------------------------------------------------- | ---------------------------------------------------- |
+| sugar().shadow(value)                                   | box-shadow: {value};                                 |
+| sugar().shadow({ x, y, blur, spread, inset, color })    | box-shadow: {inset} {x} {y} {blur} {spread} {color}; |
+| sugar().boxShadow(value)                                | box-shadow: {value};                                 |
+| sugar().boxShadow({ x, y, blur, spread, inset, color }) | box-shadow: {inset} {x} {y} {blur} {spread} {color}; |
+
+## Usage
+
+```tsx live
+function Example() {
+  const circle = () => sugar().square(100).rounded().bg('#ff8888')
+
+  return (
+    <div css={sugar().row('wrap').space(20)}>
+      <div css={circle().shadow('10px 5px 5px red')} />
+      <div
+        css={circle().shadow({
+          color: 'hotpink',
+          x: 10,
+          y: 5,
+          blur: 5,
+          spread: 0,
+        })}
+      />
+      <div
+        css={circle().boxShadow(
+          {
+            color: 'hotpink',
+            x: 10,
+            y: 5,
+            blur: 5,
+            spread: 0,
+            inset: true,
+          },
+          {
+            color: 'teal',
+            x: '1rem',
+            y: -5,
+            blur: 5,
+            spread: 0,
+            inset: true,
+          }
+        )}
+      />
+      <div css={circle().boxShadow({ color: 'teal', blur: 5 })} />
+    </div>
+  )
+}
+```

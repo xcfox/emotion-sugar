@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import { utility } from '..'
-import { lengthSugar, CssLength, pxTransform } from '../helper'
+import { lengthSugar, CssLength, orPx } from '../helper'
 
 export const color = utility(
   (colorInput: string) =>
@@ -45,8 +45,8 @@ export const textShadow = utility(
   ) => {
     if (color.startsWith('#'))
       return css`
-        text-shadow: ${pxTransform(x ?? 0)} ${pxTransform(y ?? 0)}
-          ${pxTransform(blur ?? 2)} ${pxTransform(spread ?? 2)} ${color};
+        text-shadow: ${orPx(x ?? 0)} ${orPx(y ?? 0)} ${orPx(blur ?? 2)}
+          ${orPx(spread ?? 2)} ${color};
       `
     return css`
       text-shadow: ${color};
