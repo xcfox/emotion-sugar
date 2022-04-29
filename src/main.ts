@@ -1,5 +1,6 @@
 import { SerializedStyles } from '@emotion/react'
-import { Sugar, OrFn, Utility } from '.'
+import { OrFn, Utility } from './helper'
+import { Sugar } from '.'
 
 export const utility = sugarMaker(() => new Sugar())
 
@@ -10,7 +11,7 @@ export const utility = sugarMaker(() => new Sugar())
 export const sugar = utility(
   (style?: OrFn<SerializedStyles | Sugar | string | false>) => {
     if (typeof style === 'function') {
-      style = style(sugar())
+      style = style()
     }
     return style as SerializedStyles
   }

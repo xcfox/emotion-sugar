@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
-import { CssLength, CssUnits, pxTransform, utility } from '..'
+import { CssLength, CssLengthUnits, pxTransform } from '../helper'
+import { utility } from '..'
 import { lengthSugar } from '../helper'
 
 export const m = utility(lengthSugar('margin'))
@@ -19,7 +20,7 @@ export const pt = utility(lengthSugar('padding-top'))
 export const pb = utility(lengthSugar('padding-bottom'))
 
 export const spaceX = utility(
-  (n: CssLength, unit?: CssUnits) => css`
+  (n: CssLength, unit?: CssLengthUnits) => css`
     & :not(:last-child) {
       margin-right: ${pxTransform(n, unit)};
     }
@@ -27,7 +28,7 @@ export const spaceX = utility(
 )
 
 export const spaceY = utility(
-  (n: CssLength, unit?: CssUnits) => css`
+  (n: CssLength, unit?: CssLengthUnits) => css`
     & :not(:last-child) {
       margin-bottom: ${pxTransform(n, unit)};
     }
@@ -35,7 +36,7 @@ export const spaceY = utility(
 )
 
 export const space = utility(
-  (n: CssLength, unit?: CssUnits) => css`
+  (n: CssLength, unit?: CssLengthUnits) => css`
     & :not(:last-child) {
       margin-right: ${pxTransform(n, unit)};
       margin-bottom: ${pxTransform(n, unit)};

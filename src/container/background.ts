@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
-import { CssLength, CssUnits, pxTransform, utility } from '..'
+import { utility } from '..'
+import { CssLength, CssLengthUnits, pxTransform } from '../helper'
 
 export type BackgroundRepeat = 'no-repeat' | 'repeat' | 'space ' | 'round'
 
@@ -10,8 +11,12 @@ export interface backgroundProps {
   image: string
   origin: 'border-box' | 'content-box' | 'padding-box'
   position: string
-  repeat: 'no-repeat' | 'repeat' | 'repeat-x' | 'repeat-y'
-  size: 'auto' | 'cover' | 'contain' | [CssLength, CssUnits?]
+  repeat:
+    | BackgroundRepeat
+    | 'repeat-x'
+    | 'repeat-y'
+    | [BackgroundRepeat, BackgroundRepeat]
+  size: 'auto' | 'cover' | 'contain' | CssLength
 }
 
 /** The `background` shorthand CSS property sets all background style properties at once, such as color, image, origin and size, or repeat method. */
@@ -29,15 +34,8 @@ export const bg = utility((s?: string | Partial<backgroundProps>) => {
       background-image: ${image};
       background-origin: ${origin};
       background-position: ${position};
-      background-repeat: ${repeat};
-      background-size: ${size instanceof Array ? pxTransform(...size) : size};
+      background-repeat: ${repeat instanceof Array ? repeat.join(' ') : repeat};
+      background-size: ${typeof size === 'number' ? pxTransform(size) : size};
     `
   }
 })
-
-export const opacity = utility(
-  (n?: number) =>
-    css`
-      opacity: ${n};
-    `
-)

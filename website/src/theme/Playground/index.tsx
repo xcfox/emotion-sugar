@@ -9,7 +9,7 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live'
 import BrowserOnly from '@docusaurus/BrowserOnly'
 import styles from './styles.module.css'
 import useIsBrowser from '@docusaurus/useIsBrowser'
-import { sugar } from '../../../../dist'
+import { sugar } from '../../../../src'
 import theme from 'prism-react-renderer/themes/nightOwl'
 import { css, cx } from '@emotion/css'
 
@@ -27,18 +27,23 @@ export default function Playground({ children, transformCode, ...props }) {
         theme={theme}
         {...props}
       >
-        <div className={css(sugar().row().minH(160).wFull)}>
-          <div className={css(sugar().w(60, '%'))}>
+        <div
+          className={css(sugar().screen(996, sugar().row().minH(160)).wFull)}
+        >
+          <div className={css(sugar().screen(996, sugar().w(60, '%')))}>
             <LiveEditor
               key={String(isBrowser)}
               className={cx(
                 styles.playgroundEditor,
-                css(sugar().minH(100, '%'))
+                css(sugar().minH(100, '%').overflowY('auto'))
               )}
             />
           </div>
           <div
-            className={cx(styles.playgroundPreview, css(sugar().w(40, '%')))}
+            className={cx(
+              styles.playgroundPreview,
+              css(sugar().screen(996, sugar().w(40, '%')))
+            )}
           >
             <BrowserOnly fallback={<LivePreviewLoader />}>
               {() => (

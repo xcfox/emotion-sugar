@@ -1,0 +1,36 @@
+# Border
+
+The `border` shorthand CSS property sets an element's border.
+
+#### [MDN Reference](https://developer.mozilla.org/docs/Web/CSS/opacity)
+
+## Utilities
+
+| Utilities                             | CSS Properties                                                                 |
+| ------------------------------------- | ------------------------------------------------------------------------------ |
+| sugar().border(color, width)          | border-style: solid; <br/>border-width: {width}; <br/>border-color: {color};   |
+| sugar().border({style, width, color}) | border-style: {style}; <br/>border-width: {width}; <br/>border-color: {color}; |
+
+## Usage
+
+```tsx live
+function example() {
+  const square = () => sugar().square(100).bg('#ff8888')
+
+  return (
+    <div css={sugar().row('wrap').space(10)}>
+      <div css={square().border('#872b2b')} />
+      <div css={square().border('#872b2b', 20)} />
+      <div
+        css={square().border({
+          color: ['#2b2b87', '#872b2b'],
+          width: [10, 20],
+        })}
+      />
+      <div
+        css={square().border({ style: 'dashed', color: '#872b2b', width: 20 })}
+      />
+    </div>
+  )
+}
+```

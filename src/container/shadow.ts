@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
-import { CssLength, utility, pxTransform } from '..'
+import { utility } from '..'
+import { CssLength, pxTransform } from '../helper'
 
 export const shadow = utility(
   (

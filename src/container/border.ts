@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
-import { CssLength, pxTransform, utility } from '..'
+import { asArray, CssLength, OrArray, pxTransform } from '../helper'
+import { utility } from '..'
 
 export const rounded = utility(
   (n: CssLength = 2333) =>
@@ -7,21 +8,42 @@ export const rounded = utility(
       border-radius: ${pxTransform(n)};
     `
 )
-export const border = utility((color: string | null, width: CssLength = 1) =>
-  color === null
-    ? css`
-        border: none;
-      `
-    : css`
-        border-style: solid;
-        border-color: ${color};
-        border-width: ${pxTransform(width)};
-      `
-)
 
-export const outlineNone = utility(
-  () =>
-    css`
-      outline: none;
+export type BorderStyle =
+  | 'none'
+  | 'hidden'
+  | 'dotted'
+  | 'dashed'
+  | 'solid'
+  | 'double'
+  | 'groove'
+  | 'ridge'
+  | 'inset'
+  | 'outset'
+
+export interface BorderProps {
+  style: OrArray<BorderStyle>
+  width: OrArray<CssLength>
+  color: OrArray<string>
+}
+
+/** The border shorthand CSS property sets an element's border. */
+export const border = utility(
+  (props: string | Partial<BorderProps>, w: CssLength = 1) => {
+    if (typeof props === 'string') {
+      return css`
+        border-style: solid;
+        border-color: ${props};
+        border-width: ${pxTransform(w)};
+      `
+    }
+    const { style = 'solid', width, color } = props
+    return css`
+      border-style: ${asArray(style).join(' ')};
+      border-color: ${asArray(color).join(' ')};
+      border-width: ${asArray(width)
+        .map((n) => pxTransform(n))
+        .join(' ')};
     `
+  }
 )

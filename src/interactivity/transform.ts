@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
-import { CssLength, CssUnits, utility, pxTransform } from '..'
+import { CssLength, CssLengthUnits, pxTransform } from '../helper'
+import { utility } from '..'
 
 export const transform = utility(
   (value?: string) =>
@@ -19,13 +20,13 @@ export const translate = utility(
 )
 
 export const translateX = utility(
-  (n: CssLength, unit?: CssUnits) =>
+  (n: CssLength, unit?: CssLengthUnits) =>
     css`
       transform: translateX(${pxTransform(n, unit)}); ;
     `
 )
 export const translateY = utility(
-  (n: CssLength, unit?: CssUnits) =>
+  (n: CssLength, unit?: CssLengthUnits) =>
     css`
       transform: translateY(${pxTransform(n, unit)}); ;
     `

@@ -1,0 +1,30 @@
+# Opacity
+
+The `opacity` CSS property sets the opacity of an element. Opacity is the degree to which content behind an element is hidden, and is the opposite of transparency.
+
+#### [MDN Reference](https://developer.mozilla.org/docs/Web/CSS/opacity)
+
+## Utilities
+
+| Utilities              | CSS Properties    |
+| ---------------------- | ----------------- |
+| sugar().opacity(value) | opacity: {value}; |
+
+## Usage
+
+```tsx live
+function example() {
+  const circle = () => sugar().square(100).rounded().bg('#ff8888')
+
+  return (
+    <div css={sugar().row('wrap').space(10)}>
+      <div css={circle().opacity(1)} />
+      <div css={circle().opacity(0.8)} />
+      <div css={circle().opacity(0.6)} />
+      <div css={circle().opacity(0.4)} />
+      <div css={circle().opacity(0.2)} />
+      <div css={circle().opacity(0)} />
+    </div>
+  )
+}
+```

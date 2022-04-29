@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
-import { utility, CssLength, pxTransform } from '..'
-import { lengthSugar } from '../helper'
+import { utility } from '..'
+import { lengthSugar, CssLength, pxTransform } from '../helper'
 
 export const color = utility(
   (colorInput: string) =>
