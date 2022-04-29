@@ -4,27 +4,33 @@ The `background` shorthand CSS property sets all background style properties at 
 
 #### [MDN Reference](https://developer.mozilla.org/docs/Web/CSS/background)
 
-| Utilities         | CSS Properties       |
-| ----------------- | -------------------- |
-| sugar().bg(value) | background: {value}; |
-| sugar().bg(value) | background: {value}; |
+## Utilities
+
+| Utilities                                                                      | CSS Properties                                                                                                                                                                                                                                                           |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| sugar().bg(value)                                                              | background: {value};<br/>                                                                                                                                                                                                                                                |
+| sugar().bg({ attachment, clip, color, image, origin, position, repeat, size }) | background-attachment: {attachment};<br/>background-clip: {clip};<br/>background-color: {color};<br/>background-image: {image};<br/>background-origin: {origin};<br/>background-position: {position};<br/>background-repeat: {repeat};<br/>background-size: {size};<br/> |
+
+## Usage
 
 ```tsx live
 function example() {
   const circle = () => sugar().square(100).rounded()
 
   return (
-    <div css={sugar().row().spaceX(10)}>
+    <div css={sugar().row('wrap').space(10)}>
+      <div css={circle().bg('linear-gradient(#e66465, #9198e5)')} />
       <div css={circle().bg('hotpink')} />
       <div
-        css={circle().bg(
-          'linear-gradient(to right, rgb(168, 85, 247), rgb(240, 101, 149), rgb(255, 107, 107))'
-        )}
+        css={circle().bg({
+          image:
+            'linear-gradient(to right, rgb(168, 85, 247), rgb(240, 101, 149), rgb(255, 107, 107))',
+          repeat: 'no-repeat',
+          size: 'cover',
+        })}
       />
-      <div css={circle().bg('#ff8888')} />
+      <div css={circle().bg({ color: '#ff8888' })} />
     </div>
   )
 }
 ```
-
-I can write **Markdown** alongside my _JSX_!

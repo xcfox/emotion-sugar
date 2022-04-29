@@ -50,6 +50,7 @@ import {
   column,
   center,
   flex,
+  flexWrap,
   flexGrow,
   grow,
   flexShrink,
@@ -74,6 +75,7 @@ import {
   pb,
   spaceX,
   spaceY,
+  space,
 } from './layout/spacing'
 import {
   color,
@@ -95,6 +97,7 @@ export class Sugar extends Array<SerializedStyles> {
    * sugar('object-fit: cover')*/
   sugar = sugar
 
+  /** The `background` shorthand CSS property sets all background style properties at once, such as color, image, origin and size, or repeat method. */
   bg = bg
 
   opacity = opacity
@@ -217,6 +220,8 @@ export class Sugar extends Array<SerializedStyles> {
     return flex.bind(this)()
   }
 
+  flexWrap = flexWrap
+
   flexGrow = flexGrow
 
   grow = grow
@@ -269,6 +274,8 @@ export class Sugar extends Array<SerializedStyles> {
   spaceX = spaceX
 
   spaceY = spaceY
+
+  space = space
 
   color = color
 
@@ -351,6 +358,7 @@ export {
   column,
   center,
   flex,
+  flexWrap,
   flexGrow,
   grow,
   flexShrink,
@@ -373,6 +381,7 @@ export {
   pb,
   spaceX,
   spaceY,
+  space,
   color,
   text,
   fontSize,

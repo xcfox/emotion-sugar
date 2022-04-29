@@ -13,7 +13,15 @@ export type LayoutArgument =
   | 'around'
   | 'between'
   | 'stretch'
+  | 'wrap'
+  | 'wrap-reverse'
+
 type LayoutRecord = Partial<Record<LayoutArgument, string | undefined>>
+
+const flexWrapRecord: LayoutRecord = {
+  wrap: 'wrap',
+  'wrap-reverse': 'wrap-reverse',
+}
 
 const justifyContents: LayoutRecord = {
   around: 'space-around',
@@ -52,34 +60,42 @@ const alignItemsColumn: LayoutRecord = leftRight
 export const row = utility((...layouts: LayoutArgument[]) => {
   let justifyContent: string | undefined = undefined
   let alignItems: string | undefined = undefined
+  let flexWrap: string | undefined = undefined
   for (const layout of layouts) {
     const jc = justifyContentRow[layout]
     jc && (justifyContent = jc)
     const ai = alignItemsRow[layout]
     ai && (alignItems = ai)
+    const fw = flexWrapRecord[layout]
+    fw && (flexWrap = fw)
   }
   return css`
     display: flex;
     flex-direction: row;
     justify-content: ${justifyContent};
     align-items: ${alignItems};
+    flex-wrap: ${flexWrap};
   `
 })
 
 export const column = utility((...layouts: LayoutArgument[]) => {
   let justifyContent: string | undefined = undefined
   let alignItems: string | undefined = undefined
+  let flexWrap: string | undefined = undefined
   for (const layout of layouts) {
     const jc = justifyContentColumn[layout]
     jc && (justifyContent = jc)
     const ai = alignItemsColumn[layout]
     ai && (alignItems = ai)
+    const fw = flexWrapRecord[layout]
+    fw && (flexWrap = fw)
   }
   return css`
     display: flex;
     flex-direction: column;
     justify-content: ${justifyContent};
     align-items: ${alignItems};
+    flex-wrap: ${flexWrap};
   `
 })
 
@@ -93,6 +109,12 @@ export const center = utility(
 export const flex = utility(
   () => css`
     display: flex;
+  `
+)
+
+export const flexWrap = utility(
+  (value: 'wrap' | 'wrap-reverse' | 'nowrap' = 'wrap') => css`
+    flex-wrap: ${value};
   `
 )
 
