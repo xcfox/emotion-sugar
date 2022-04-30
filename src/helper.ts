@@ -60,9 +60,10 @@ export function lengthSugar<L = CssLength>(
 
 export function selectorSugar(key: string) {
   return (
-    sugarFn: OrFn<SerializedStyles | Sugar | string>
-  ): SerializedStyles => {
+    sugarFn: OrFn<SerializedStyles | Sugar | string | undefined | false>
+  ): SerializedStyles | undefined => {
     const ss = sugarFn instanceof Function ? sugarFn() : sugarFn
+    if (!ss) return
     return css`
       ${key} {
         ${ss}
