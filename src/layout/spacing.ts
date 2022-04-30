@@ -3,21 +3,30 @@ import { CssLength, CssLengthUnits, orPx } from '../helper'
 import { utility } from '..'
 import { lengthSugar } from '../helper'
 
-export const m = utility(lengthSugar('margin'))
-export const mx = utility(lengthSugar('margin-left', 'margin-right'))
-export const my = utility(lengthSugar('margin-top', 'margin-bottom'))
-export const ml = utility(lengthSugar('margin-left'))
-export const mr = utility(lengthSugar('margin-right'))
-export const mt = utility(lengthSugar('margin-top'))
-export const mb = utility(lengthSugar('margin-bottom'))
+export type CssLengthOrAuto = CssLength | 'auto'
+export const m = utility(lengthSugar<CssLengthOrAuto>('margin'))
+export const mx = utility(
+  lengthSugar<CssLengthOrAuto>('margin-left', 'margin-right')
+)
+export const my = utility(
+  lengthSugar<CssLengthOrAuto>('margin-top', 'margin-bottom')
+)
+export const ml = utility(lengthSugar<CssLengthOrAuto>('margin-left'))
+export const mr = utility(lengthSugar<CssLengthOrAuto>('margin-right'))
+export const mt = utility(lengthSugar<CssLengthOrAuto>('margin-top'))
+export const mb = utility(lengthSugar<CssLengthOrAuto>('margin-bottom'))
 
-export const p = utility(lengthSugar('padding'))
-export const px = utility(lengthSugar('padding-left', 'padding-right'))
-export const py = utility(lengthSugar('padding-top', 'padding-bottom'))
-export const pl = utility(lengthSugar('padding-left'))
-export const pr = utility(lengthSugar('padding-right'))
-export const pt = utility(lengthSugar('padding-top'))
-export const pb = utility(lengthSugar('padding-bottom'))
+export const p = utility(lengthSugar<CssLengthOrAuto>('padding'))
+export const px = utility(
+  lengthSugar<CssLengthOrAuto>('padding-left', 'padding-right')
+)
+export const py = utility(
+  lengthSugar<CssLengthOrAuto>('padding-top', 'padding-bottom')
+)
+export const pl = utility(lengthSugar<CssLengthOrAuto>('padding-left'))
+export const pr = utility(lengthSugar<CssLengthOrAuto>('padding-right'))
+export const pt = utility(lengthSugar<CssLengthOrAuto>('padding-top'))
+export const pb = utility(lengthSugar<CssLengthOrAuto>('padding-bottom'))
 
 export const spaceX = utility(
   (n: CssLength, unit?: CssLengthUnits) => css`
