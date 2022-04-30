@@ -1,13 +1,16 @@
 import { css } from '@emotion/react'
 import { utility } from '..'
-import { lengthSugar } from '../helper'
+import { CssLength, lengthSugar } from '../helper'
 
-export const w = utility(lengthSugar('width'))
-export const h = utility(lengthSugar('height'))
-export const maxW = utility(lengthSugar('max-width'))
-export const minW = utility(lengthSugar('min-width'))
-export const maxH = utility(lengthSugar('max-height'))
-export const minH = utility(lengthSugar('min-height'))
+export type CssContent = 'max-content' | 'min-content' | 'fit-content' | 'auto'
+export type CssLengthOrContent = CssLength | CssContent
+
+export const w = utility(lengthSugar<CssLengthOrContent>('width'))
+export const h = utility(lengthSugar<CssLengthOrContent>('height'))
+export const maxW = utility(lengthSugar<CssLengthOrContent>('max-width'))
+export const minW = utility(lengthSugar<CssLengthOrContent>('min-width'))
+export const maxH = utility(lengthSugar<CssLengthOrContent>('max-height'))
+export const minH = utility(lengthSugar<CssLengthOrContent>('min-height'))
 
 /** set width full */
 export const wFull = utility(
@@ -38,4 +41,6 @@ export const full = utility(
  *   height: $n;
  * }
  * ``` */
-export const square = utility(lengthSugar('width', 'height'))
+export const square = utility(
+  lengthSugar<CssLengthOrContent>('width', 'height')
+)

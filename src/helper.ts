@@ -48,11 +48,11 @@ export type Utility<Args extends Array<unknown>> = <This extends Sugar>(
 
 export type OrFn<T = SerializedStyles | Sugar | string | false> = (() => T) | T
 
-export function lengthSugar(
+export function lengthSugar<L = CssLength>(
   ...keys: string[]
-): (n?: CssLength, unit?: CssLengthUnits) => SerializedStyles {
+): (n?: L, unit?: CssLengthUnits) => SerializedStyles {
   return (n, unit) => {
-    const nn = orPx(n, unit)
+    const nn = orPx(n as any, unit)
     const ss = keys.map((key) => `${key}: ${nn};`)
     return css(...ss)
   }
