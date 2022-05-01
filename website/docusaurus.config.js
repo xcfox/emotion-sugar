@@ -47,7 +47,7 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'utilities/container/index',
+            docId: 'utilities/effect/background',
             position: 'left',
             label: 'Utilities',
           },

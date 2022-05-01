@@ -6,12 +6,6 @@
 [ ] Transforms  
 [ ] Transitions
 
-## ~~Backgrounds~~
-
-[ ] Background  
-[ ] Gradients  
-[ ] Background Blend Mode
-
 ## Behaviors
 
 [ ] Box Decoration Break  
@@ -21,12 +15,10 @@
 [ ] Overscroll Behavior  
 [ ] Placeholder Color
 
-## Border
-
 ## Effects
 
 [x] Background
-[ ] Border  
+[x] Border  
 [x] Box Shadow  
 [x] Opacity
 [ ] Outline
