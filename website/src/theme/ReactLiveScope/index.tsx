@@ -6,7 +6,7 @@
  */
 import React from 'react'
 import { sugar } from '../../../../src'
-import { css } from '@emotion/css'
+import { css, keyframes } from '@emotion/css'
 // Add react-live imports you need here
 
 function Div({ css: outerCss, ...props }) {
@@ -16,6 +16,7 @@ function Div({ css: outerCss, ...props }) {
 const ReactLiveScope = {
   React,
   ...React,
+  keyframes,
   sugar,
   Div,
 }

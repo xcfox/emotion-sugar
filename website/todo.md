@@ -2,7 +2,7 @@
 
 ## Animations
 
-[ ] Animation  
+[x] Animation  
 [ ] Transforms  
 [ ] Transitions
 

@@ -1,0 +1,62 @@
+# Animation
+
+Utilities for animating elements with CSS animations.
+
+#### [MDN Reference](https://developer.mozilla.org/docs/Web/CSS/animation)
+
+## Utilities
+
+| Utilities                                                                                                  | CSS Properties                                                                                             |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| sugar().animate(value)                                                                                     | animation: {value};                                                                                        |
+| sugar().animate({name, duration, timingFunction, delay, iterationCount, direction, fillMode, playState})   | animation: {duration} {timingFunction} {delay} {iterationCount} {direction} {fillMode} {playState} {name}; |
+| sugar().animation(value)                                                                                   | animation: {value};                                                                                        |
+| sugar().animation({name, duration, timingFunction, delay, iterationCount, direction, fillMode, playState}) | animation: {duration} {timingFunction} {delay} {iterationCount} {direction} {fillMode} {playState} {name}; |
+
+## Usage
+
+```tsx live
+function Example() {
+  const bounce = keyframes`
+  from, 20%, 53%, 80%, to {
+    transform: translate3d(0,0,0);
+  }
+
+  40%, 43% {
+    transform: translate3d(0, -30px, 0);
+  }
+
+  70% {
+    transform: translate3d(0, -15px, 0);
+  }
+
+  90% {
+    transform: translate3d(0,-4px,0);
+  }
+`
+  const gradient = keyframes`
+  from, to {
+    background: #563db4;
+  }
+
+  50% {
+    background: #66ffdf;
+  }
+`
+
+  const circle = () => sugar().square(20).rounded().bg('#ff8888')
+
+  return (
+    <div css={sugar().row('wrap').p(30).space(30)}>
+      <div css={circle()} />
+      <div
+        css={circle().animate(
+          `3s ease-in 1s infinite reverse both running ${bounce};`
+        )}
+      />
+      <div css={circle().animate({ name: gradient, duration: 1000 })} />
+      <div css={circle().animate({ name: gradient }, { name: bounce })} />
+    </div>
+  )
+}
+```
