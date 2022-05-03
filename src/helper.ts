@@ -1,42 +1,65 @@
 import { css, SerializedStyles } from '@emotion/react'
 import { Sugar } from '.'
 
-export type CssLength = number | CssLiteral
-export type CssLengthUnits =
-  | 'cap'
-  | 'ch'
-  | 'em'
-  | 'ex'
-  | 'ic'
-  | 'lh'
-  | 'rem'
-  | 'rlh'
-  | 'vh'
-  | 'vw'
-  | 'vi'
-  | 'vb'
-  | 'vmin'
-  | 'vmax'
-  | 'px'
-  | 'cm'
-  | 'mm'
-  | 'Q'
-  | 'in'
-  | 'pc'
-  | 'pt'
-  | 'mozmm'
-  | '%'
+export type CssLength =
+  | number
+  | CssLengthLiteral
+  | { 'css-length-value': string }
+export function isCssLength(value: any): value is CssLength {
+  if (typeof value === 'number') return true
+  if (
+    typeof value === 'object' &&
+    typeof value['css-length-value'] === 'string'
+  )
+    return true
+  if (typeof value === 'string') {
+    const n = parseFloat(value)
+    const u: any = value.split(n.toString())[1]
+    return cssLengthUnits.includes(u)
+  }
+  return false
+}
 
-export type CssLiteral = `${'' | '-' | '+'}${number}${CssLengthUnits}`
+const cssLengthUnits = [
+  'cap',
+  'ch',
+  'em',
+  'ex',
+  'ic',
+  'lh',
+  'rem',
+  'rlh',
+  'vh',
+  'vw',
+  'vi',
+  'vb',
+  'vmin',
+  'vmax',
+  'px',
+  'cm',
+  'mm',
+  'Q',
+  'in',
+  'pc',
+  'pt',
+  'mozmm',
+  '%',
+] as const
+
+export type CssLengthUnits = typeof cssLengthUnits[number]
+
+export type CssLengthLiteral = `${'' | '-' | '+'}${number}${CssLengthUnits}`
 
 export function orPx(
-  n?: CssLength | CssLiteral,
+  n?: CssLength | CssLengthLiteral,
   unit: CssLengthUnits = 'px'
 ): string | undefined {
   if (typeof n == 'number') {
     return n + unit
   } else if (typeof n == 'string') {
     return n
+  } else if (typeof n == 'object' && n != null) {
+    return n['css-length-value']
   }
   return undefined
 }

@@ -2,6 +2,13 @@
 import { SerializedStyles } from '@emotion/react'
 import { sugar } from './main'
 import { animation, animate } from './animations/animation'
+import {
+  transform,
+  translate,
+  translateX,
+  translateY,
+} from './animations/transform'
+import { transition } from './animations/transition'
 import { boxSizing, box } from './container/boxSizing'
 import { fit } from './container/objectFit'
 import { outlineNone } from './container/outline'
@@ -40,13 +47,6 @@ import {
   overflowX,
   overflowY,
 } from './interactivity/overflow'
-import {
-  transform,
-  translate,
-  translateX,
-  translateY,
-} from './interactivity/transform'
-import { transition } from './interactivity/transition'
 import { select, userSelect } from './interactivity/userSelect'
 import {
   row,
@@ -106,6 +106,16 @@ export class Sugar extends Array<SerializedStyles> {
 
   /** Utilities for animating elements with CSS animations. */
   animate = animate
+
+  transform = transform
+
+  translate = translate
+
+  translateX = translateX
+
+  translateY = translateY
+
+  transition = transition
 
   boxSizing = boxSizing
 
@@ -214,16 +224,6 @@ export class Sugar extends Array<SerializedStyles> {
   overflowX = overflowX
 
   overflowY = overflowY
-
-  transform = transform
-
-  translate = translate
-
-  translateX = translateX
-
-  translateY = translateY
-
-  transition = transition
 
   select = select
 
@@ -346,6 +346,11 @@ export {
   sugar,
   animation,
   animate,
+  transform,
+  translate,
+  translateX,
+  translateY,
+  transition,
   boxSizing,
   box,
   fit,
@@ -383,11 +388,6 @@ export {
   overflow,
   overflowX,
   overflowY,
-  transform,
-  translate,
-  translateX,
-  translateY,
-  transition,
   select,
   userSelect,
   row,

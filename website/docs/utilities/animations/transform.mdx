@@ -1,0 +1,33 @@
+# Transform
+
+Utilities for controlling transform behavior.
+
+#### [MDN Reference](https://developer.mozilla.org/docs/Web/CSS/opacity)
+
+## Utilities
+
+| Utilities                                                           | CSS Properties                                                                                                                     |
+| ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| sugar().transform(value)                                            | transform: {value};                                                                                                                |
+| sugar().transform({matrix, rotate, scale, skew, translate, origin}) | transform-origin: {origin};<br/>transform: matrix:({matrix}) rotate:({rotate}) scale({scale}) skew({skew}) translate({translate}); |
+
+## Usage
+
+```tsx live
+function Example() {
+  const square = () =>
+    sugar().square(60).bg('linear-gradient(#e66465, #9198e5)')
+
+  return (
+    <div css={sugar().row('wrap').space(60)}>
+      <div css={square().transform({ matrix: [1, 2, 3, 1, 2, 3] })} />
+      <div
+        css={square().transform({ rotate: 30, origin: ['right', 'bottom'] })}
+      />
+      <div css={square().transform({ scale: 0.5, rotate3d: [1, 1, 0, 60] })} />
+      <div css={square().transform({ skew: 30 })} />
+      <div css={square().transform({ translate3d: [10, 10, 10] })} />
+    </div>
+  )
+}
+```
