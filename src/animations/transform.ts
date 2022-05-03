@@ -158,6 +158,7 @@ function originTransform(
   return orPx(value) || ''
 }
 
+/** Utilities for controlling transform behavior. */
 export const transform = utility((value?: string | Partial<TransformArgs>) => {
   if (typeof value === 'string')
     return css`

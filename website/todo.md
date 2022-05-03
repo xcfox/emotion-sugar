@@ -3,8 +3,8 @@
 ## Animations
 
 [x] Animation  
-[ ] Transforms  
-[ ] Transitions
+[x] Transforms  
+[x] Transitions
 
 ## Behaviors
 
@@ -17,12 +17,12 @@
 
 ## Effects
 
-[x] Background
+[x] Background  
 [x] Border  
 [x] Box Shadow  
-[x] Opacity
-[ ] Outline
-[x] Mix Blend Mode
+[x] Opacity  
+[ ] Outline  
+[x] Mix Blend Mode  
 [ ] Ring
 
 ## ~~Filter~~

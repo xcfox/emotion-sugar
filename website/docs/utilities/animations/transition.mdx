@@ -1,0 +1,47 @@
+# Transition
+
+Utilities for controlling which CSS properties transition.
+
+#### [MDN Reference](https://developer.mozilla.org/docs/Web/CSS/transition)
+
+## Utilities
+
+| Utilities                                                       | CSS Properties                                                                                                                                           |
+| --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sugar().transition(string)                                      | transition: {string};                                                                                                                                    |
+| sugar().transition(number)                                      | transition: ${number}ms cubic-bezier(0.42, 0, 0.24, 1);                                                                                                  |
+| sugar().transition({property, duration, timingFunction, delay}) | transition-property: {property};<br/>transition-duration: ${duration};<br/>transition-timing-function: {timingFunction};<br/>transition-delay: ${delay}; |
+
+## Usage
+
+```tsx live
+function Example() {
+  const [state, setState] = useState(false)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setState((s) => !s)
+    }, 2333)
+    return () => clearTimeout(timer)
+  })
+
+  const circle = () =>
+    sugar()
+      .square(40)
+      .rounded()
+      .bg(state ? '#ff8888' : '#88c7ff')
+      .ml(state ? 60 : 0)
+
+  return (
+    <div css={sugar().column().spaceY(60)}>
+      <div css={circle().transition()} />
+      <div
+        css={circle().transition('cubic-bezier(0.25, 0.1, 0.25, 1.0) 600ms')}
+      />
+      <div css={circle().transition({ delay: 300, duration: 800 })} />
+      <div
+        css={circle().transition({ property: ['background'], duration: 600 })}
+      />
+    </div>
+  )
+}
+```

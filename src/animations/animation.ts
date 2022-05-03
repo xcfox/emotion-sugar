@@ -1,11 +1,13 @@
 import { css, Keyframes } from '@emotion/react'
 import { utility } from '../main'
 
+export type CssTime = number | `${number}${'s' | 'ms'}`
+
 export interface AnimationArgs {
   name: Keyframes
-  duration?: number | `${number}${'s' | 'ms'}`
+  duration?: CssTime
   timingFunction?: string
-  delay?: number | `${number}${'s' | 'ms'}`
+  delay?: CssTime
   iterationCount?: number | 'infinite'
   direction?: 'normal' | 'reverse' | 'alternate' | 'alternate-reverse'
   fillMode?: 'none' | 'forwards' | 'backwards' | 'both'
@@ -45,6 +47,7 @@ export const animation = utility(
 /** Utilities for animating elements with CSS animations. */
 export const animate = animation
 
-export function orMs(n: string | number): string {
+export function orMs(n: CssTime | undefined): string {
+  if (!n) return ''
   return typeof n === 'number' ? `${n}ms` : n
 }
