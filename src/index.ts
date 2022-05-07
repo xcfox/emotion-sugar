@@ -80,6 +80,7 @@ import {
 } from './layout/spacing'
 import {
   color,
+  font,
   text,
   fontSize,
   fontWeight,
@@ -144,21 +145,21 @@ export class Sugar extends Array<SerializedStyles> {
   fit = fit
 
   get outlineNone() {
-    return outlineNone.bind(this)()
+    return outlineNone.bind(this)() as this
   }
 
   position = position
 
   get relative() {
-    return relative.bind(this)()
+    return relative.bind(this)() as this
   }
 
   get absolute() {
-    return absolute.bind(this)()
+    return absolute.bind(this)() as this
   }
 
   get fixed() {
-    return fixed.bind(this)()
+    return fixed.bind(this)() as this
   }
 
   zIndex = zIndex
@@ -185,17 +186,17 @@ export class Sugar extends Array<SerializedStyles> {
 
   /** set width full */
   get wFull() {
-    return wFull.bind(this)()
+    return wFull.bind(this)() as this
   }
 
   /** set height full */
   get hFull() {
-    return hFull.bind(this)()
+    return hFull.bind(this)() as this
   }
 
   /** set width and height full */
   get full() {
-    return full.bind(this)()
+    return full.bind(this)() as this
   }
 
   /** set both width and height
@@ -248,11 +249,11 @@ export class Sugar extends Array<SerializedStyles> {
   column = column
 
   get center() {
-    return center.bind(this)()
+    return center.bind(this)() as this
   }
 
   get flex() {
-    return flex.bind(this)()
+    return flex.bind(this)() as this
   }
 
   flexWrap = flexWrap
@@ -314,6 +315,9 @@ export class Sugar extends Array<SerializedStyles> {
 
   color = color
 
+  /** */
+  font = font
+
   text = text
 
   fontSize = fontSize
@@ -323,7 +327,7 @@ export class Sugar extends Array<SerializedStyles> {
   lineHeight = lineHeight
 
   get fontSans() {
-    return fontSans.bind(this)()
+    return fontSans.bind(this)() as this
   }
 
   textShadow = textShadow
@@ -437,6 +441,7 @@ export {
   spaceY,
   space,
   color,
+  font,
   text,
   fontSize,
   fontWeight,

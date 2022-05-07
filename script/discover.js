@@ -85,7 +85,7 @@ sugars.forEach(({ source, name, hasArg, comment }) => {
   } else {
     properties.push(`${comment}
     get ${name}() {
-      return ${name}.bind(this)()
+      return ${name}.bind(this)() as this
     }\n`)
   }
 })

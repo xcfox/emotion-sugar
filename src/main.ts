@@ -33,3 +33,13 @@ export function sugarMaker<SS extends Array<SerializedStyles>>(
 export type MakeSugar = <Args extends Array<unknown>>(
   fn: (...args: Args) => SerializedStyles | undefined | false
 ) => Utility<Args>
+
+class P extends Sugar {
+  haha = utility(() => undefined)
+}
+
+function p() {
+  return new P()
+}
+
+p().rounded().haha().box().fixed

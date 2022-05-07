@@ -30,7 +30,9 @@ export default function Playground({ children, transformCode, ...props }) {
         <div
           className={css(sugar().screen(996, sugar().row().minH(160)).wFull)}
         >
-          <div className={css(sugar().screen(996, sugar().w(60, '%')))}>
+          <div
+            className={css(sugar().screen(996, sugar().w(60, '%').relative))}
+          >
             <LiveEditor
               key={String(isBrowser)}
               className={cx(
@@ -38,6 +40,21 @@ export default function Playground({ children, transformCode, ...props }) {
                 css(sugar().minH(100, '%').overflowY('auto'))
               )}
             />
+            <div
+              className={css(
+                sugar()
+                  .text(14)
+                  .fontWeight(666)
+                  .right('1em')
+                  .bottom('0.3em')
+                  .pointerEvents('none')
+                  .opacity(0.7)
+                  .color('var(--ifm-color-primary)')
+                  .zIndex(1).absolute
+              )}
+            >
+              Live Demo
+            </div>
           </div>
           <div
             className={cx(
@@ -60,6 +77,9 @@ export default function Playground({ children, transformCode, ...props }) {
   )
 }
 
-function transformEmotionCode(code: string): string {
-  return code.replace(/div/g, 'Div').replace(/span/g, 'Span')
+export function transformEmotionCode(code: string): string {
+  return code
+    .replace(/div/g, 'Div')
+    .replace(/span/g, 'Span')
+    .replace(/h2/g, 'H2')
 }
