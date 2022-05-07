@@ -9,6 +9,7 @@ import {
   translateY,
 } from './animations/transform'
 import { transition } from './animations/transition'
+import { decoration } from './behaviors/boxDecorationBreak'
 import { boxSizing, box } from './container/boxSizing'
 import { fit } from './container/objectFit'
 import { outlineNone } from './container/outline'
@@ -107,6 +108,7 @@ export class Sugar extends Array<SerializedStyles> {
   /** Utilities for animating elements with CSS animations. */
   animate = animate
 
+  /** Utilities for controlling transform behavior. */
   transform = transform
 
   translate = translate
@@ -115,7 +117,10 @@ export class Sugar extends Array<SerializedStyles> {
 
   translateY = translateY
 
+  /** Utilities for controlling the duration of CSS transitions. */
   transition = transition
+
+  decoration = decoration
 
   boxSizing = boxSizing
 
@@ -351,6 +356,7 @@ export {
   translateX,
   translateY,
   transition,
+  decoration,
   boxSizing,
   box,
   fit,

@@ -1,0 +1,38 @@
+# Box Decoration Break
+
+Utilities for controlling how element fragments should be rendered across multiple lines, columns, or pages.
+
+#### [MDN Reference](https://developer.mozilla.org/docs/Web/CSS/box-decoration-break)
+
+## Utilities
+
+| Utilities                 | CSS Properties                 |
+| ------------------------- | ------------------------------ |
+| sugar().decoration(value) | box-decoration-break: {value}; |
+
+## Usage
+
+```tsx live
+function Example() {
+  const lines = () =>
+    sugar().bg('linear-gradient(#e66465, #9198e5)').rounded().px(5)
+
+  return (
+    <>
+      <span css={lines().decoration('slice')}>
+        The <br />
+        quick <br />
+        brown fox <br />
+        over the lazy dog
+      </span>
+      <div css={sugar().h(20)} />
+      <span css={lines().decoration('clone')}>
+        The <br />
+        quick <br />
+        brown fox <br />
+        over the lazy dog
+      </span>
+    </>
+  )
+}
+```

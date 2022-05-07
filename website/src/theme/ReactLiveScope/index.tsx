@@ -13,11 +13,16 @@ function Div({ css: outerCss, ...props }) {
   return <div className={css(outerCss)} {...props}></div>
 }
 
+function Span({ css: outerCss, ...props }) {
+  return <span className={css(outerCss)} {...props}></span>
+}
+
 const ReactLiveScope = {
   React,
   ...React,
   keyframes,
   sugar,
   Div,
+  Span,
 }
 export default ReactLiveScope

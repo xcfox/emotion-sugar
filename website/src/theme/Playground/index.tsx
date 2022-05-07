@@ -61,5 +61,5 @@ export default function Playground({ children, transformCode, ...props }) {
 }
 
 function transformEmotionCode(code: string): string {
-  return code.replace(/div/g, 'Div')
+  return code.replace(/div/g, 'Div').replace(/span/g, 'Span')
 }
