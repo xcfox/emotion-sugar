@@ -11,6 +11,7 @@ import {
 import { transition } from './animations/transition'
 import { decoration } from './behaviors/boxDecorationBreak'
 import { overflow, overflowX, overflowY } from './behaviors/overflow'
+import { overscroll, overscrollX, overscrollY } from './behaviors/overscroll'
 import { boxSizing, box } from './container/boxSizing'
 import { fit } from './container/objectFit'
 import { outlineNone } from './container/outline'
@@ -118,11 +119,23 @@ export class Sugar extends Array<SerializedStyles> {
 
   decoration = decoration
 
+  /** Utilities for controlling how an element handles content that is too large for the container. */
   overflow = overflow
 
+  /** Utilities for controlling how an element handles content that is too large for the container. */
   overflowX = overflowX
 
+  /** Utilities for controlling how an element handles content that is too large for the container. */
   overflowY = overflowY
+
+  /** Utilities for controlling how the browser behaves when reaching the boundary of a scrolling area. */
+  overscroll = overscroll
+
+  /** Utilities for controlling how the browser behaves when reaching the boundary of a scrolling area. */
+  overscrollX = overscrollX
+
+  /** Utilities for controlling how the browser behaves when reaching the boundary of a scrolling area. */
+  overscrollY = overscrollY
 
   boxSizing = boxSizing
 
@@ -356,6 +369,9 @@ export {
   overflow,
   overflowX,
   overflowY,
+  overscroll,
+  overscrollX,
+  overscrollY,
   boxSizing,
   box,
   fit,
