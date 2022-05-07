@@ -1,0 +1,34 @@
+# Overflow
+
+Utilities for controlling how an element handles content that is too large for the container.
+
+#### [MDN Reference](https://developer.mozilla.org/docs/Web/CSS/overflow)
+
+## Utilities
+
+| Utilities                | CSS Properties                        |
+| ------------------------ | ------------------------------------- |
+| sugar().overflow(value)  | overflow: {value};                    |
+| sugar().overflow(x, y)   | overflow: {x} {y};                    |
+| sugar().overflow({x, y}) | overflow-x: {x};<br/>overflow-y: {y}; |
+| sugar().overflowX(value) | overflow-x: {value};                  |
+| sugar().overflowY(value) | overflow-y: {value};                  |
+
+## Usage
+
+```tsx live
+function Example() {
+  const box = () => sugar().bg('linear-gradient(#ffbaba, #b1b7ff)').px(5).h(150)
+  const text = `The value of Pi is 3.1415926535897932384626433832795029. The value of e is 2.7182818284590452353602874713526625. Michaelmas term lately over, and the Lord Chancellor sitting in Lincolns Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth.`
+
+  return (
+    <>
+      <div css={box().overflowY('auto')}>{text}</div>
+      <div css={sugar().h(20)} />
+      <div css={box().overflow('hidden')}>{text}</div>
+      <div css={sugar().h(20)} />
+      <div css={box().overflow({ y: 'hidden' })}>{text}</div>
+    </>
+  )
+}
+```

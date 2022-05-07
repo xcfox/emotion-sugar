@@ -1,32 +1,25 @@
 import { css } from '@emotion/react'
 import { utility } from '..'
 
-export const resize = utility(
-  (
-    value?:
-      | 'none'
-      | 'both'
-      | 'horizontal'
-      | 'vertical'
-      | 'block'
-      | 'inline'
-      | 'inherit'
-      | 'initial'
-      | 'unset'
-  ) =>
-    css`
-      resize: ${value};
-    `
-)
-
-export type OverflowValue = 'visible' | 'hidden' | 'scroll' | 'auto' | 'inherit'
+export type OverflowValue = 'visible' | 'hidden' | 'scroll' | 'auto'
 
 export const overflow = utility(
-  (value?: OverflowValue) =>
-    css`
-      overflow: ${value};
+  (
+    args?: OverflowValue | { x?: OverflowValue; y?: OverflowValue },
+    y?: OverflowValue
+  ) => {
+    if (!args) return undefined
+    if (typeof args === 'object')
+      return css`
+        overflow-x: ${args.x};
+        overflow-y: ${args.y};
+      `
+    return css`
+      overflow: ${args ?? ''} ${y ?? ''};
     `
+  }
 )
+
 export const overflowX = utility(
   (value?: OverflowValue) =>
     css`

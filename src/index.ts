@@ -10,6 +10,7 @@ import {
 } from './animations/transform'
 import { transition } from './animations/transition'
 import { decoration } from './behaviors/boxDecorationBreak'
+import { overflow, overflowX, overflowY } from './behaviors/overflow'
 import { boxSizing, box } from './container/boxSizing'
 import { fit } from './container/objectFit'
 import { outlineNone } from './container/outline'
@@ -42,12 +43,7 @@ import { mixBlendMode, mixBlend } from './effect/mixBlendMode'
 import { opacity } from './effect/opacity'
 import { shadow, boxShadow } from './effect/shadow'
 import { cursor, pointerEvents } from './interactivity/cursor'
-import {
-  resize,
-  overflow,
-  overflowX,
-  overflowY,
-} from './interactivity/overflow'
+import { resize } from './interactivity/resize'
 import { select, userSelect } from './interactivity/userSelect'
 import {
   row,
@@ -121,6 +117,12 @@ export class Sugar extends Array<SerializedStyles> {
   transition = transition
 
   decoration = decoration
+
+  overflow = overflow
+
+  overflowX = overflowX
+
+  overflowY = overflowY
 
   boxSizing = boxSizing
 
@@ -223,12 +225,6 @@ export class Sugar extends Array<SerializedStyles> {
   pointerEvents = pointerEvents
 
   resize = resize
-
-  overflow = overflow
-
-  overflowX = overflowX
-
-  overflowY = overflowY
 
   select = select
 
@@ -357,6 +353,9 @@ export {
   translateY,
   transition,
   decoration,
+  overflow,
+  overflowX,
+  overflowY,
   boxSizing,
   box,
   fit,
@@ -391,9 +390,6 @@ export {
   cursor,
   pointerEvents,
   resize,
-  overflow,
-  overflowX,
-  overflowY,
   select,
   userSelect,
   row,

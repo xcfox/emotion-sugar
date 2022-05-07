@@ -9,9 +9,7 @@
 ## Behaviors
 
 - [x] Box Decoration Break
-- [ ] Image Rendering
-- [ ] Listings
-- [ ] Overflow
+- [x] Overflow
 - [ ] Overscroll Behavior
 
 ## Effects
