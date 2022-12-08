@@ -96,13 +96,28 @@ import { hover, active, focus, disabled, selector } from './utils/selector'
 export class Sugar extends Array<SerializedStyles> {
   private _names: Set<string> = new Set()
   push(...items: SerializedStyles[]): number {
-    const elements = items.filter(({ name, styles }) => {
-      if (this._names.has(name)) return false
+    for (const { name } of items) {
+      this._names.delete(name)
       this._names.add(name)
-      return true
-    })
-    super.push(...elements)
-    return this.length
+    }
+    return super.push(...items)
+  }
+
+  get styles() {
+    if (this._names.size !== this.length) {
+      const origin = this.splice(0, this.length)
+      const hash = new Map<string, number>()
+      for (let i = 0; i < origin.length; i++) {
+        const element = origin[i]
+        hash.set(element.name, i)
+      }
+      this._names.forEach((name) => {
+        const i = hash.get(name)
+        if (i != null) super.push(origin[i])
+      })
+    }
+    // @ts-ignore
+    return super.styles
   }
   /** Any SerializedStyles
    * @example
