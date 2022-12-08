@@ -94,6 +94,16 @@ import { sm, md, lg, xl, xxl, screen } from './utils/responsive'
 import { hover, active, focus, disabled, selector } from './utils/selector'
 
 export class Sugar extends Array<SerializedStyles> {
+  private _names: Set<string> = new Set()
+  push(...items: SerializedStyles[]): number {
+    const elements = items.filter(({ name, styles }) => {
+      if (this._names.has(name)) return false
+      this._names.add(name)
+      return true
+    })
+    super.push(...elements)
+    return this.length
+  }
   /** Any SerializedStyles
    * @example
    * sugar(css`object-fit: cover;`)
