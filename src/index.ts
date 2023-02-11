@@ -89,6 +89,7 @@ import {
   textShadow,
 } from './typography'
 import { textEllipsis } from './typography/textEllipsis'
+import { add } from './utils/add'
 import { when } from './utils'
 import { sm, md, lg, xl, xxl, screen } from './utils/responsive'
 import { hover, active, focus, disabled, selector } from './utils/selector'
@@ -360,6 +361,8 @@ export class Sugar extends Array<SerializedStyles> {
   /** 文本溢出省略 */
   textEllipsis = textEllipsis
 
+  add = add
+
   when = when
 
   sm = sm
@@ -474,6 +477,7 @@ export {
   fontSans,
   textShadow,
   textEllipsis,
+  add,
   when,
   sm,
   md,
