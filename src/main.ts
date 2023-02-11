@@ -1,4 +1,4 @@
-import { SerializedStyles } from '@emotion/react'
+import { Interpolation, SerializedStyles, Theme } from '@emotion/react'
 import { OrFn, Utility } from './helper'
 import { Sugar } from '.'
 
@@ -8,14 +8,9 @@ export const utility = sugarMaker(() => new Sugar())
  * @example
  * sugar(css`object-fit: cover;`)
  * sugar('object-fit: cover')*/
-export const sugar = utility(
-  (style?: OrFn<SerializedStyles | Sugar | string | false>) => {
-    if (typeof style === 'function') {
-      style = style()
-    }
-    return style as SerializedStyles
-  }
-)
+export const sugar = utility((style?: Interpolation<Theme> | false) => {
+  return style as SerializedStyles
+})
 
 export function sugarMaker<SS extends Array<SerializedStyles>>(
   init: () => SS
