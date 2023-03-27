@@ -1,5 +1,5 @@
 import { css, SerializedStyles } from '@emotion/react'
-import { InterpolationPrimitive } from '@emotion/serialize'
+import { InterpolationPrimitive, CSSInterpolation } from '@emotion/serialize'
 import { Sugar } from '.'
 
 export type CssLength =
@@ -74,11 +74,11 @@ export type OrFn<T = SerializedStyles | Sugar | string | false> = (() => T) | T
 
 export function lengthSugar<L = CssLength>(
   ...keys: string[]
-): (n?: L, unit?: CssLengthUnits) => SerializedStyles {
+): (n?: L, unit?: CssLengthUnits) => CSSInterpolation {
   return (n, unit) => {
     const nn = orPx(n as any, unit)
     const ss = keys.map((key) => `${key}: ${nn};`)
-    return css(...ss)
+    return ss
   }
 }
 
