@@ -1,4 +1,4 @@
-import { css, SerializedStyles, Interpolation, Theme } from '@emotion/react'
+import { css, SerializedStyles } from '@emotion/react'
 import { InterpolationPrimitive, CSSInterpolation } from '@emotion/serialize'
 import { Sugar } from '.'
 
@@ -85,8 +85,8 @@ export function lengthSugar<L = CssLength>(
 export function selectorSugar(key: string) {
   return (
     sugarFn: OrFn<SerializedStyles | Sugar | string | undefined | false>
-  ): Interpolation<Theme> | undefined => {
-    const ss: any = sugarFn instanceof Function ? sugarFn() : sugarFn
+  ): InterpolationPrimitive | undefined => {
+    const ss = sugarFn instanceof Function ? sugarFn() : sugarFn
     if (!ss) return
     return css`
       ${key} {
