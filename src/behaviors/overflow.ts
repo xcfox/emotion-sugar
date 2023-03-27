@@ -11,11 +11,11 @@ export const overflow = utility(
   ) => {
     if (!args) return
     if (typeof args === 'object')
-      return css`
+      return `
         overflow-x: ${args.x};
         overflow-y: ${args.y};
       `
-    return css`
+    return `
       overflow: ${args ?? ''} ${y ?? ''};
     `
   }
@@ -24,7 +24,7 @@ export const overflow = utility(
 /** Utilities for controlling how an element handles content that is too large for the container. */
 export const overflowX = utility(
   (value?: OverflowValue) =>
-    css`
+    `
       overflow-x: ${value};
     `
 )
@@ -32,7 +32,7 @@ export const overflowX = utility(
 /** Utilities for controlling how an element handles content that is too large for the container. */
 export const overflowY = utility(
   (value?: OverflowValue) =>
-    css`
+    `
       overflow-y: ${value};
     `
 )

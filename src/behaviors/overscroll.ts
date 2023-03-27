@@ -11,11 +11,11 @@ export const overscroll = utility(
   ) => {
     if (!args) return
     if (typeof args === 'object')
-      return css`
+      return `
         overscroll-behavior-x: ${args.x};
         overscroll-behavior-y: ${args.y};
       `
-    return css`
+    return `
       overscroll-behavior: ${args ?? ''} ${y ?? ''};
     `
   }
@@ -24,7 +24,7 @@ export const overscroll = utility(
 /** Utilities for controlling how the browser behaves when reaching the boundary of a scrolling area. */
 export const overscrollX = utility(
   (value?: OverscrollValue) =>
-    css`
+    `
       overscroll-behavior-x: ${value};
     `
 )
@@ -32,7 +32,7 @@ export const overscrollX = utility(
 /** Utilities for controlling how the browser behaves when reaching the boundary of a scrolling area. */
 export const overscrollY = utility(
   (value?: OverscrollValue) =>
-    css`
+    `
       overscroll-behavior-y: ${value};
     `
 )

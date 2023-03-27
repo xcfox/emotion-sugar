@@ -41,14 +41,14 @@ export const cursor = utility(
       | 'zoom-in'
       | 'zoom-out'
   ) =>
-    css`
+    `
       cursor: ${value};
     `
 )
 
 export const pointerEvents = utility(
   (value: 'auto' | 'none' | 'all' | 'initial') =>
-    css`
+    `
       pointer-events: ${value};
     `
 )

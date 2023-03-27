@@ -13,7 +13,7 @@ export const resize = utility(
       | 'inherit'
       | 'initial'
       | 'unset'
-  ) => css`
+  ) => `
     resize: ${value};
   `
 )

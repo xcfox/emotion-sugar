@@ -52,7 +52,7 @@ const color = 'white'
 
 render(
   <div
-    css={css`
+    css={`
       ${sugar().p(32).bg('hotpink').text(24).rounded(4)}
       &:hover {
         color: ${color};
@@ -69,7 +69,7 @@ or:
 ```tsx
 render(
   <div
-    css={sugar().p(32).bg('hotpink').text(24).rounded(4).sugar(css`
+    css={sugar().p(32).bg('hotpink').text(24).rounded(4).sugar(`
       &:hover {
         color: ${color};
       }`}

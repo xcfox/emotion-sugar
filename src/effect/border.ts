@@ -4,7 +4,7 @@ import { utility } from '..'
 
 export const rounded = utility(
   (n: CssLength = 2333) =>
-    css`
+    `
       border-radius: ${orPx(n)};
     `
 )
@@ -31,14 +31,14 @@ export interface BorderProps {
 export const border = utility(
   (props: string | Partial<BorderProps>, w: CssLength = 1) => {
     if (typeof props === 'string') {
-      return css`
+      return `
         border-style: solid;
         border-color: ${props};
         border-width: ${orPx(w)};
       `
     }
     const { style = 'solid', width, color } = props
-    return css`
+    return `
       border-style: ${asArray(style).join(' ')};
       border-color: ${asArray(color).join(' ')};
       border-width: ${asArray(width)

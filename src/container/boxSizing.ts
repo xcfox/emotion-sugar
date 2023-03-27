@@ -3,7 +3,7 @@ import { utility } from '..'
 
 export const boxSizing = utility(
   (value: 'border-box' | 'content-box' = 'border-box') =>
-    css`
+    `
       box-sizing: ${value};
     `
 )

@@ -20,7 +20,7 @@ export type MixBlendMode =
   | 'luminosity'
 
 export const mixBlendMode = utility(
-  (value?: MixBlendMode) => css`
+  (value?: MixBlendMode) => `
     mix-blend-mode: ${value};
   `
 )

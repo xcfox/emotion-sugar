@@ -14,11 +14,11 @@ export interface TransformArgs {
 export const transition = utility(
   (value: string | number | Partial<TransformArgs> = 233) => {
     if (typeof value === 'string')
-      return css`
+      return `
         transition: ${value};
       `
     if (typeof value === 'number')
-      return css`
+      return `
         transition: ${value}ms cubic-bezier(0.42, 0, 0.24, 1);
       `
     const {
@@ -27,7 +27,7 @@ export const transition = utility(
       timingFunction = 'cubic-bezier(0.42, 0, 0.24, 1)',
       delay,
     } = value
-    return css`
+    return `
       transition-property: ${property && asArray(property).join(', ')};
       transition-duration: ${orMs(duration)};
       transition-timing-function: ${timingFunction};

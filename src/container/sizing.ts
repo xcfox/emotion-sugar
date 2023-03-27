@@ -14,21 +14,21 @@ export const minH = utility(lengthSugar<CssLengthOrContent>('min-height'))
 
 /** set width full */
 export const wFull = utility(
-  () => css`
+  () => `
     width: 100%;
   `
 )
 
 /** set height full */
 export const hFull = utility(
-  () => css`
+  () => `
     height: 100%;
   `
 )
 
 /** set width and height full */
 export const full = utility(
-  () => css`
+  () => `
     width: 100%;
     height: 100%;
   `

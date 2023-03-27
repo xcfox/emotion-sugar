@@ -18,7 +18,7 @@ export interface AnimationArgs {
 export const animation = utility(
   (arg: string | AnimationArgs, ...args: AnimationArgs[]) => {
     if (typeof arg === 'string') {
-      return css`
+      return `
         animation: ${arg};
       `
     }
@@ -38,7 +38,7 @@ export const animation = utility(
         )} ${iterationCount} ${direction} ${fillMode} ${playState} ${name}`
       }
     )
-    return css`
+    return `
       animation: ${texts.join(', ')};
     `
   }

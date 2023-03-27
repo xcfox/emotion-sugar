@@ -139,15 +139,17 @@ export function transformByArgs({
   if (translateZ) {
     transformFunctions.push(`translateZ(${orPx(translateZ)})`)
   }
-  return css`
+  return `
     transform: ${transformFunctions.join(' ')};
-    ${origin
-      ? `transform-origin: ${
-          origin instanceof Array
-            ? origin.map(originTransform).join(' ')
-            : originTransform(origin)
-        }`
-      : ''}
+    ${
+      origin
+        ? `transform-origin: ${
+            origin instanceof Array
+              ? origin.map(originTransform).join(' ')
+              : originTransform(origin)
+          }`
+        : ''
+    }
   `
 }
 
@@ -161,7 +163,7 @@ function originTransform(
 /** Utilities for controlling transform behavior. */
 export const transform = utility((value?: string | Partial<TransformArgs>) => {
   if (typeof value === 'string')
-    return css`
+    return `
       transform: ${value};
     `
   if (typeof value === 'object') {
@@ -171,20 +173,20 @@ export const transform = utility((value?: string | Partial<TransformArgs>) => {
 
 export const translate = utility(
   (valueX: CssLength, valueY?: CssLength) =>
-    css`
+    `
       transform: translate(${orPx(valueX)}, ${orPx(valueY ?? valueX)}); ;
     `
 )
 
 export const translateX = utility(
   (n: CssLength, unit?: CssLengthUnits) =>
-    css`
+    `
       transform: translateX(${orPx(n, unit)}); ;
     `
 )
 export const translateY = utility(
   (n: CssLength, unit?: CssLengthUnits) =>
-    css`
+    `
       transform: translateY(${orPx(n, unit)}); ;
     `
 )

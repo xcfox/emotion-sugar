@@ -3,7 +3,7 @@ import { utility } from '..'
 
 export const fit = utility(
   (fit: 'fill' | 'contain' | 'cover' | 'none' | 'scale-down') =>
-    css`
+    `
       object-fit: ${fit};
     `
 )

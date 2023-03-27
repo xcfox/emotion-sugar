@@ -24,7 +24,7 @@ export interface backgroundProps {
 /** The `background` shorthand CSS property sets all background style properties at once, such as color, image, origin and size, or repeat method. */
 export const bg = utility((s?: string | Partial<backgroundProps>) => {
   if (typeof s === 'string')
-    return css`
+    return `
       background: ${s};
     `
   if (typeof s === 'object') {
@@ -39,7 +39,7 @@ export const bg = utility((s?: string | Partial<backgroundProps>) => {
       size,
       blendMode,
     } = s
-    return css`
+    return `
       background-attachment: ${attachment};
       background-clip: ${clip};
       background-color: ${color};

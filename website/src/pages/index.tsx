@@ -27,7 +27,7 @@ const titleButton = cn(
     .transition()
     .shadow({ color: 'var(--ifm-color-primary-dark)', blur: 7 })
     .hover(
-      sugar(css`
+      sugar(`
         text-decoration: none;
         color: white;
       `).bg('var(--ifm-color-primary-darker)')

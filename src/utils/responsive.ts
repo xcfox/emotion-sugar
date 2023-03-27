@@ -18,7 +18,7 @@ export const xxl = utility(selectorSugar('@media (min-width: 1536)'))
 export const screen: Utility<[value: CssLength, style: OrFn]> = utility(
   (value: CssLength, style: OrFn) => {
     const ss = style instanceof Function ? style() : style
-    return css`
+    return `
       @media (min-width: ${orPx(value)}) {
         ${ss}
       }

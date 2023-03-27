@@ -29,7 +29,7 @@ export const pt = utility(lengthSugar<CssLengthOrAuto>('padding-top'))
 export const pb = utility(lengthSugar<CssLengthOrAuto>('padding-bottom'))
 
 export const spaceX = utility(
-  (n: CssLength, unit?: CssLengthUnits) => css`
+  (n: CssLength, unit?: CssLengthUnits) => `
     & :not(:last-child) {
       margin-right: ${orPx(n, unit)};
     }
@@ -37,7 +37,7 @@ export const spaceX = utility(
 )
 
 export const spaceY = utility(
-  (n: CssLength, unit?: CssLengthUnits) => css`
+  (n: CssLength, unit?: CssLengthUnits) => `
     & :not(:last-child) {
       margin-bottom: ${orPx(n, unit)};
     }
@@ -45,7 +45,7 @@ export const spaceY = utility(
 )
 
 export const space = utility(
-  (n: CssLength, unit?: CssLengthUnits) => css`
+  (n: CssLength, unit?: CssLengthUnits) => `
     & :not(:last-child) {
       margin-right: ${orPx(n, unit)};
       margin-bottom: ${orPx(n, unit)};

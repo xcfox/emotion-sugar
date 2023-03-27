@@ -69,7 +69,7 @@ export const row = utility((...layouts: LayoutArgument[]) => {
     const fw = flexWrapRecord[layout]
     fw && (flexWrap = fw)
   }
-  return css`
+  return `
     display: flex;
     flex-direction: row;
     justify-content: ${justifyContent};
@@ -90,7 +90,7 @@ export const column = utility((...layouts: LayoutArgument[]) => {
     const fw = flexWrapRecord[layout]
     fw && (flexWrap = fw)
   }
-  return css`
+  return `
     display: flex;
     flex-direction: column;
     justify-content: ${justifyContent};
@@ -100,48 +100,48 @@ export const column = utility((...layouts: LayoutArgument[]) => {
 })
 
 export const center = utility(
-  () => css`
+  () => `
     display: flex;
     justify-content: center;
     align-items: center;
   `
 )
 export const flex = utility(
-  () => css`
+  () => `
     display: flex;
   `
 )
 
 export const flexWrap = utility(
-  (value: 'wrap' | 'wrap-reverse' | 'nowrap' = 'wrap') => css`
+  (value: 'wrap' | 'wrap-reverse' | 'nowrap' = 'wrap') => `
     flex-wrap: ${value};
   `
 )
 
 export const flexGrow = utility(
   (n?: number) =>
-    css`
+    `
       flex-grow: ${n};
     `
 )
 
 export const grow = utility(
   (n?: number) =>
-    css`
+    `
       flex-grow: ${n};
     `
 )
 
 export const flexShrink = utility(
   (n?: number) =>
-    css`
+    `
       flex-shrink: ${n};
     `
 )
 
 export const shrink = utility(
   (n?: number) =>
-    css`
+    `
       flex-shrink: ${n};
     `
 )
@@ -170,7 +170,7 @@ export const alignItems = utility(
       | 'inherit'
       | 'initial'
       | 'unset'
-  ) => css`
+  ) => `
     align-items: ${value};
   `
 )
@@ -200,7 +200,7 @@ export const alignSelf = utility(
       | 'inherit'
       | 'initial'
       | 'unset'
-  ) => css`
+  ) => `
     align-self: ${value};
   `
 )

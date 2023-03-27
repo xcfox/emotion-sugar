@@ -6,7 +6,7 @@ import { utility } from '..'
  * [MDN Reference](https://developer.mozilla.org/docs/Web/CSS/opacity)
  */
 export const opacity = utility(
-  (n?: number) => css`
+  (n?: number) => `
     opacity: ${n};
   `
 )

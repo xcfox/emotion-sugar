@@ -4,7 +4,7 @@ import { lengthSugar, CssLength, orPx, OrArray, asArray } from '../helper'
 
 export const color = utility(
   (colorInput: string) =>
-    css`
+    `
       color: ${colorInput};
     `
 )
@@ -22,11 +22,11 @@ export interface FontArgs {
 /** */
 export const font = utility((args: string | Partial<FontArgs>) => {
   if (typeof args === 'string')
-    return css`
+    return `
       font: ${args};
     `
   const { style, variant, weight, size, lineHeight, family, color } = args
-  return css`
+  return `
     font-style: ${style};
     font-variant: ${variant};
     font-weight: ${weight};
@@ -43,7 +43,7 @@ export const fontSize = utility(lengthSugar('font-size'))
 
 export const fontWeight = utility(
   (n: number | 'bold') =>
-    css`
+    `
       font-weight: ${n};
     `
 )
@@ -51,7 +51,7 @@ export const fontWeight = utility(
 export const lineHeight = utility(lengthSugar('line-height'))
 
 export const fontSans = utility(
-  () => css`
+  () => `
     font-family: sans-serif;
   `
 )
@@ -72,11 +72,11 @@ export const textShadow = utility(
     } = {}
   ) => {
     if (color.startsWith('#'))
-      return css`
+      return `
         text-shadow: ${orPx(x ?? 0)} ${orPx(y ?? 0)} ${orPx(blur ?? 2)}
           ${orPx(spread ?? 2)} ${color};
       `
-    return css`
+    return `
       text-shadow: ${color};
     `
   }

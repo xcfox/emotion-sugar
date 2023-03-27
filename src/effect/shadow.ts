@@ -14,7 +14,7 @@ export interface ShadowProps {
 export const shadow = utility(
   (first: ShadowProps | string, ...rest: ShadowProps[]) => {
     if (typeof first === 'string')
-      return css`
+      return `
         box-shadow: ${first};
       `
 
@@ -25,7 +25,7 @@ export const shadow = utility(
           blur ?? 0
         )} ${orPx(spread ?? 0)} ${color}`
     )
-    return css`
+    return `
       box-shadow: ${shadowExpressions.join(', ')};
     `
   }

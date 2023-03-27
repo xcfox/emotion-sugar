@@ -12,7 +12,7 @@ function _select(
     | 'initial'
     | 'unset'
 ) {
-  return css`
+  return `
     user-select: ${select};
   `
 }
