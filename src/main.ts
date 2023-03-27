@@ -9,7 +9,7 @@ export const utility = sugarMaker(() => new Sugar())
  * @example
  * sugar(css`object-fit: cover;`)
  * sugar('object-fit: cover')*/
-export const sugar = utility((style?: CSSInterpolation | false) => {
+export const sugar = utility((style?: Interpolation<Theme> | false) => {
   return style as CSSInterpolation
 })
 
