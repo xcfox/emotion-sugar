@@ -1,5 +1,4 @@
-import { Interpolation, SerializedStyles, Theme } from '@emotion/react'
-import { CSSInterpolation } from '@emotion/serialize'
+import { Interpolation, Theme } from '@emotion/react'
 import { OrFn, Utility } from './helper'
 import { Sugar } from '.'
 
@@ -9,11 +8,11 @@ export const utility = sugarMaker(() => new Sugar())
  * @example
  * sugar(css`object-fit: cover;`)
  * sugar('object-fit: cover')*/
-export const sugar = utility((style?: CSSInterpolation | false) => {
-  return style as CSSInterpolation
+export const sugar = utility((style?: Interpolation<Theme> | false) => {
+  return style
 })
 
-export function sugarMaker<SS extends Array<CSSInterpolation>>(
+export function sugarMaker<SS extends Array<Interpolation<Theme>>>(
   init: () => SS
 ): MakeSugar {
   return (fn) => {
@@ -27,5 +26,5 @@ export function sugarMaker<SS extends Array<CSSInterpolation>>(
 }
 
 export type MakeSugar = <Args extends Array<unknown>>(
-  fn: (...args: Args) => CSSInterpolation | undefined | false
+  fn: (...args: Args) => Interpolation<Theme> | undefined | false
 ) => Utility<Args>
