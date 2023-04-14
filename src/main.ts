@@ -18,7 +18,7 @@ export function sugarMaker<SS extends Array<CSSInterpolation>>(
 ): MakeSugar {
   return (fn) => {
     return function (this, ...args) {
-      const self = this ?? init()
+      const self = ((this as any) === global ? init() : this) as SS
       const style = fn(...args)
       style && self.push(style)
       return self as any
